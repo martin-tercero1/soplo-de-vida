@@ -1,8 +1,8 @@
 import Image from "next/image";
 import imageMaca from "./images/Macarena.png";
-import imageFlor from "./images/flor.png"
-import imageJuli from "./images/juli.png"
-import imageFran from "./images/fran.png"
+import imageFlor from "./images/flor.png";
+import imageJuli from "./images/juli.png";
+import imageFran from "./images/fran.png";
 export const Testimonials = () => {
   const testimonios = [
     {
@@ -53,8 +53,12 @@ export const Testimonials = () => {
               width={298}
               className="h-80 mb-4"
             />
-            <h2 className="font-medium text-[#404552] text-center text-2xl">{testimonio.name}</h2>
-            <p className="text-gray-600 font-normal text-center mt-4 text-base">&quot;{testimonio.description}&quot;</p>
+            <h2 className="font-medium text-[#404552] text-center text-2xl">
+              {testimonio.name}
+            </h2>
+            <p className="text-gray-600 font-normal text-center mt-4 text-base">
+              &quot;{testimonio.description}&quot;
+            </p>
           </div>
         ))}
       </div>
