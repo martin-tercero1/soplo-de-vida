@@ -1,5 +1,5 @@
 import { Header } from "@/components/home/Header";
-import { Hero } from "@/components/home/Hero";
+import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { About } from "@/components/home/About";
 import { Donate } from "@/components/home/Donate";
 import { Testimonials } from "@/components/home/Testimonials";
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Header></Header>
-      <Hero></Hero>
+      <HeroCarousel></HeroCarousel>
       <About></About>
       <Donate></Donate>
       <Testimonials></Testimonials>
