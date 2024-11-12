@@ -40,7 +40,7 @@ export const Header = () => {
                 Contactarme
               </a>
             </li>
-            <Button size="medium" variant="primary" text="Donar"></Button>
+            <Button size="medium" variant="secondary" text="Donar"></Button>
           </ul>
         </nav>
       </div>
