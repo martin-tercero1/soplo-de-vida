@@ -2,13 +2,15 @@
 import Image from "next/image";
 import testimonios from "./dataTestimonials";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import arrow from "./images/arrow.svg";
 
 export const Testimonials = () => {
   const scrollRef = useRef(null);
+  const [flag, setFlag] = useState(false);
 
   const handleNext = () => {
+    if (!flag) setFlag(true);
     scrollRef.current.scrollBy({ left: 500, behavior: "smooth" });
   };
 
@@ -24,7 +26,7 @@ export const Testimonials = () => {
         <motion.div
           ref={scrollRef}
           className={`flex space-x-7 overflow-hidden ${
-            testimonios.length > 5 ? "md:ml-20 md:pr-10" : "md:ml-0 md:mr-0"
+            testimonios.length > 5 ? "md:pl-20 md:pr-10" : "md:ml-0 md:mr-0"
           }`}
         >
           {testimonios.map((testimonio, index) => (
@@ -53,18 +55,20 @@ export const Testimonials = () => {
         </motion.div>
       </div>
 
-      <button
-        onClick={handlePrev}
-        className="absolute h-[64px] w-[64px] left-5 top-1/3 transform -translate-y-1/2 bg-[#FADBC7] p-2 rounded-full"
-      >
-        <Image
-          src={arrow}
-          alt={`Next arrow`}
-          height={20}
-          width={20}
-          className="w-[16.74px] h-[35.56px] rotate-180 ml-4"
-        />
-      </button>
+      {flag && (
+        <button
+          onClick={handlePrev}
+          className="absolute h-[64px] w-[64px] left-5 top-1/3 transform -translate-y-1/2 bg-[#FADBC7] p-2 rounded-full"
+        >
+          <Image
+            src={arrow}
+            alt={`Next arrow`}
+            height={20}
+            width={20}
+            className="w-[16.74px] h-[35.56px] rotate-180 ml-4"
+          />
+        </button>
+      )}
       <button
         onClick={handleNext}
         className="absolute h-[64px] w-[64px] right-5 top-1/3 transform -translate-y-1/2 bg-[#FADBC7] p-2 rounded-[35px]"

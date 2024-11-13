@@ -4,6 +4,7 @@ import imageJuli from "./images/juli.png";
 import imageFran from "./images/fran.png";
 import imageSabri from "./images/sabri.png";
 
+const border = "shadow-gray-200 shadow-sm border-s-2";
 const testimonios = [
   {
     name: "Macarena",
@@ -28,16 +29,17 @@ const testimonios = [
     picture: imageFran,
     description:
       "Ser voluntario me cambió la vida y sé que ayudé a cambiarle la vida a otros.",
-    //SE AGREGA EL CUSTOM BORDER SOLO A LAS FOTOS CON BORDE BLANCO
-    border: "shadow-gray-300 shadow-sm",
+    //SE AGREGA EL CUSTOM BORDER SOLO A LAS FOTOS CON BORDE BLANCO border: 1px solid #FFFFFF
+    border
   },
   {
     name: "Sabri",
     picture: imageSabri,
     description:
       "Es pura reciprocidad de cariño. Anímate y déjate enamorar por un tiempito.",
-    border: "shadow-gray-300 shadow-sm",
+      border
   },
+  
 ];
 
 export default testimonios;
