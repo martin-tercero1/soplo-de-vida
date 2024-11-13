@@ -9,10 +9,10 @@ export const Contact = () => {
         <span className="text-md text-grey ">
         Llená el formulario y envianos tu contacto para que podamos comunicarnos con vos.
         </span>
-        <Button variant="primary" customStyles={["px-[24px]", "py-[16px]", "whitespace-nowrap, text-md"]} text="Ir a formulario de adopciones" ></Button>
+        <Button size="large" variant="primary" customStyles={["w-auto"]} text="Ir a formulario de adopciones" ></Button>
         <div className="flex flex-col items-center">
           <p className="text-md text-grey">O escribinos a:</p>
-          <a className="text-md text-primary" href="#">info@soplodevida.org</a>
+          <a className="text-md text-primary text-[#0082D8]" href="#">info@soplodevida.org</a>
         </div>
       </div>
    </section>
