@@ -28,12 +28,15 @@ const testimonios = [
     picture: imageFran,
     description:
       "Ser voluntario me cambió la vida y sé que ayudé a cambiarle la vida a otros.",
+    //SE AGREGA EL CUSTOM BORDER SOLO A LAS FOTOS CON BORDE BLANCO
+    border: "shadow-gray-300 shadow-sm",
   },
   {
     name: "Sabri",
     picture: imageSabri,
     description:
       "Es pura reciprocidad de cariño. Anímate y déjate enamorar por un tiempito.",
+    border: "shadow-gray-300 shadow-sm",
   },
 ];
 
