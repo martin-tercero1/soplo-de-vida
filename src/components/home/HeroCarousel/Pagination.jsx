@@ -9,7 +9,6 @@ export const Pagination = ({slidesInfo, setSlide, currentSlide}) => {
   return (
     <nav className="flex justify-around w-[60px] mb-3">
       {slidesInfo.map((slide, index) => {
-        {console.log(index === currentSlide)}
         return (<span
           key={index}
           style={{ backgroundColor: index === currentSlide ? "rgb(80 39 106 / var(--tw-border-opacity))"

@@ -1,3 +1,5 @@
+"use client"
+
 import { Header } from "@/components/home/Header";
 import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { About } from "@/components/home/About";
@@ -5,17 +7,39 @@ import { Donate } from "@/components/home/Donate";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Contact } from "@/components/home/Contact";
 import { Footer } from "@/components/home/Footer";
+import { DonatePopUp } from "@/components/home/Donate/DonatePopUp";
+
+import { useState } from "react";
+import { twMerge } from "tailwind-merge";
+import clsx from "clsx";
 
 export default function Home() {
+  const [isPopUpVisible, setIsPopUpVisible] = useState(false);
+
+    const homeClass = clsx("content-wrapper", {
+    "blurred": isPopUpVisible === true,
+    "bg-primary": isPopUpVisible === true
+  });
+
+  const togglePopUp = () => {
+    setIsPopUpVisible((prevValue) => !prevValue);
+  };
+
+  const mergedClass = twMerge(homeClass);
+
   return (
     <>
-      <Header></Header>
-      <HeroCarousel></HeroCarousel>
-      <About></About>
-      <Donate></Donate>
-      <Testimonials></Testimonials>
-      <Contact></Contact>
-      <Footer></Footer>
+      <div className={mergedClass}>
+        <Header togglePopUp={togglePopUp} ></Header>
+        <HeroCarousel></HeroCarousel>
+        <About></About>
+        <Donate></Donate>
+        <Testimonials></Testimonials>
+        <Contact></Contact>
+        <Footer></Footer>
+      </div>
+
+      {isPopUpVisible && <DonatePopUp togglePopUp={togglePopUp} />}
     </>
   );
 }

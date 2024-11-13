@@ -22,3 +22,11 @@ body {
 
 /*Variables*/ 
 /*Colores de fondo*/
+
+.content-wrapper {
+  transition: filter 0.3s ease;
+}
+.content-wrapper.blurred {
+  filter: blur(2px); /* Adjust the blur intensity as needed */
+  filter: opacity(50%);
+}

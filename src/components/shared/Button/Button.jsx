@@ -1,11 +1,12 @@
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
 
-export const Button = ({ variant, size, text, customStyles=[] }) => {
+export const Button = ({ variant, size, text, customStyles=[], link, onClick }) => {
     const buttonClass = clsx(
       "rounded-[8px]",
       "hover:bg-secondary",
       "hover:text-primary",
+      "text-center",
       {
         "bg-primary": variant === "primary",
         "bg-transparent": variant === "secondary",
@@ -29,5 +30,9 @@ export const Button = ({ variant, size, text, customStyles=[] }) => {
   // Use twMerge to ensure there are no conflicting or redundant classes
   const mergedClass = twMerge(buttonClass);
 
-  return <button className={mergedClass}>{text}</button>;
+  if (link) {
+    return <a className={mergedClass} onClick={onClick} target="_blank" href={link}>{text}</a>;
+  }
+
+  return <button onClick={onClick} className={mergedClass}>{text}</button>;
 };
