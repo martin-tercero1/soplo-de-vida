@@ -1,3 +1,1 @@
-export const Testimonials = () => {
-  return <div>Testimonials</div>;
-};
+export { Testimonials } from "./Testimonials";
