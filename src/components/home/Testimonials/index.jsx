@@ -3,7 +3,7 @@ import Image from "next/image";
 import testimonios from "./dataTestimonials";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import arrow from "./images/arrow.svg";
+import arrow from "../../../../public/arrow.svg";
 
 export const Testimonials = () => {
   const scrollRef = useRef(null);

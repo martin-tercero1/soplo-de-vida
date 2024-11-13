@@ -1,10 +1,11 @@
-import imageMaca from "./images/Macarena.png";
-import imageFlor from "./images/flor.png";
-import imageJuli from "./images/juli.png";
-import imageFran from "./images/fran.png";
-import imageSabri from "./images/sabri.png";
+import imageMaca from "../../../../public/macarena.png";
+import imageFlor from "../../../../public/flor.png";
+import imageJuli from "../../../../public/juli.png";
+import imageFran from "../../../../public/fran.png";
+import imageSabri from "../../../../public/sabri.png";
 
-const border = "shadow-gray-200 shadow-sm border-s-2";
+//SE AGREGA EL CUSTOM BORDER SOLO A LAS FOTOS CON BORDE BLANCO
+const border = "shadow-gray-300 shadow-sm border-s-2";
 const testimonios = [
   {
     name: "Macarena",
@@ -29,17 +30,16 @@ const testimonios = [
     picture: imageFran,
     description:
       "Ser voluntario me cambió la vida y sé que ayudé a cambiarle la vida a otros.",
-    //SE AGREGA EL CUSTOM BORDER SOLO A LAS FOTOS CON BORDE BLANCO border: 1px solid #FFFFFF
-    border
+
+    border,
   },
   {
     name: "Sabri",
     picture: imageSabri,
     description:
       "Es pura reciprocidad de cariño. Anímate y déjate enamorar por un tiempito.",
-      border
+    border,
   },
-  
 ];
 
 export default testimonios;
