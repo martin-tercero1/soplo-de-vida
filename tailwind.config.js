@@ -44,6 +44,12 @@ module.exports = {
       '2xl': "48px",
     },
     extend: {
+      backgroundImage: {
+        "hero-slide-1": "url('/slide-image-1.png')",
+        "hero-slide-2": "url('/slide-image-2.png')",
+        "hero-slide-3": "url('/slide-image-3.png')",
+        "hero-slide-4": "url('/slide-image-4.png')",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
