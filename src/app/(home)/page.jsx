@@ -12,6 +12,7 @@ import { DonatePopUp } from "@/components/home/Donate/DonatePopUp";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
+import { HelpUs } from "@/components/home/HelpUs";
 
 export default function Home() {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
@@ -34,6 +35,7 @@ export default function Home() {
         <HeroCarousel></HeroCarousel>
         <About></About>
         <Donate></Donate>
+        <HelpUs></HelpUs>
         <Testimonials></Testimonials>
         <Contact></Contact>
         <Footer></Footer>
