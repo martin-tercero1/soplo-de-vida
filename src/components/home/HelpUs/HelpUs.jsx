@@ -7,10 +7,10 @@ import image4 from "../../../../public/help-us-4.png";
 export const HelpUs = () => {
     return <section
         id="ayudanos"
-        className="flex flex-col items-center justify-center gap-[18px] h-fit bg-secondary p-3"
+        className="flex flex-col items-center justify-center gap-[18px] h-fit bg-secondary p-5"
         >
         <h2 className="text-xl font-bold ">¿Cómo ayudar?</h2>
-        <div className="overflow-hidden w-full h-fit relative flex flex-row justify-evenly flex-wrap px-8 ">
+        <div className="overflow-hidden w-full h-fit flex flex-row justify-evenly flex-wrap gap-x-1 gap-y-3">
             <HelpUsCards
                 imageUrl={image1}
                 title={'Donaciones'}
@@ -36,7 +36,7 @@ export const HelpUs = () => {
                 buttonText={'Quiero transitar'}
             />
         </div>
-        <div className="w-[619px] h-fit bg-white flex flex-col rounded-lg m-1 items-center shadow-md p-1">
+        <div className="w-[619px] h-fit bg-white flex flex-col rounded-lg m-2 items-center shadow-md p-1">
             <h3 className="font-bold text-[#404552] text-[18px]">¡Agradecemos tu colaboración!</h3>
             <p className="text-gray-600 font-small">Con un pequeño gesto ayudás a varios soplitos a ser felices</p>
         </div>

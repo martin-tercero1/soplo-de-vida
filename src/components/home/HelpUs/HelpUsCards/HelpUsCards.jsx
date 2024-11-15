@@ -2,7 +2,7 @@ import { Button } from "@/components/shared/Button";
 import Image from "next/image";
 
 export const HelpUsCards = ({ imageUrl, title, text, buttonText }) => {
-    return <div className="w-[614px] h-[250px] bg-white flex flex-row rounded-lg m-1 items-center shadow-md">
+    return <div className="w-[614px] h-[250px] bg-white flex flex-row rounded-lg items-center shadow-md">
         <Image
             src={imageUrl}
             alt={'help-us-photo'}
