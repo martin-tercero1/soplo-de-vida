@@ -54,6 +54,19 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      screens: {
+        'mobile': '320px',
+        // => @media (min-width: 320px) { ... }
+
+        'tablet': '744px',
+        // => @media (min-width: 744px) { ... }
+  
+        'laptop': '1024px',
+        // => @media (min-width: 1024px) { ... }
+  
+        'desktop': '1440px',
+        // => @media (min-width: 1440px) { ... }
+      },
     },
   },
   plugins: [],
