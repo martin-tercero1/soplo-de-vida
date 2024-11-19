@@ -20,15 +20,18 @@ export const Contact = () => {
           text="Ir a formulario de adopciones"
           link="https://goo.gl/forms/vRAFc3yV8MWCZ1yJ2"
         ></Button>
+        
         <div className="flex flex-col items-center">
           <p className="text-md text-grey font-semibold">O escribinos a:</p>
-          <a
-            className="text-md text-[#0082D8]"
-            href="mailto:info@soplodevida.org"
-          >
-            info@soplodevida.org
-          </a>
+          <Button
+          size="large"
+          variant="tertiary"
+          customStyles={["w-auto", "underline", "font-medium", "outline-[1px]", "text-[#0082D8]"]}
+          text="info@soplodevida.org"
+          link="mailto:info@soplodevida.org"
+        ></Button>
         </div>
+        
       </div>
     </section>
   );
