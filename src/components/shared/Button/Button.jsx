@@ -10,7 +10,7 @@ export const Button = ({ variant, size, text, customStyles=[], link, onClick }) 
       {
         "bg-primary": variant === "primary",
         "bg-transparent": variant === "secondary",
-        "bg-white": variant === "tertiary",
+        "laptop:bg-white tablet:bg-white mobile:bg-transparent": variant === "tertiary",  
         outline: variant === "secondary" || "tertiary",
         "outline-primary": variant === "secondary",
         "outline-grey": variant === "tertiary",
