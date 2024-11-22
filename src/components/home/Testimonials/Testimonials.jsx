@@ -19,8 +19,13 @@ export const Testimonials = () => {
   };
 
   return (
-    <section id="testimonios" className="w-auto h-[743px] flex flex-col items-center bg-white relative">
-      <h1 className="font-bold text-black text-xl text-center mb-7 mt-1">Testimonios</h1>
+    <section
+      id="testimonios"
+      className="w-auto tablet:h-[743px] mobile:h-[650px] flex flex-col items-center bg-white relative"
+    >
+      <h1 className="font-bold text-black tablet:text-xl mobile:text-md text-center tablet:mb-7 mobile:mb-2 mt-1">
+        Testimonios
+      </h1>
 
       <div className="overflow-hidden w-full relative flex justify-center pl-8">
         <motion.div
@@ -32,7 +37,7 @@ export const Testimonials = () => {
           {testimonios.map((testimonio, index) => (
             <div
               key={index}
-              className="w-[326px] h-[570px] p-1 pb-4 flex-shrink-0"
+              className="overflow-hidden w-[326px] tablet:h-[570px] p-1 pb-4 flex-shrink-0"
               style={{ scrollSnapAlign: "start" }}
             >
               <Image
@@ -40,14 +45,15 @@ export const Testimonials = () => {
                 alt={`${testimonio.name}'s picture`}
                 height={250}
                 width={250}
-                className={`md:h-[323px] md:w-[298px] rounded-lg ${
+                quality={100}
+                className={`laptop:h-[323px] laptop:w-[298px] mobile:h-[240px] mobile:w-[275px] rounded-lg ${
                   testimonio.border ? testimonio.border : ""
-                }`}
+                } object-cover object-top`}
               />
-              <h2 className="font-medium text-[#404552] text-center text-md">
+              <h2 className="font-medium text-[#404552] text-center text-md mt-2">
                 {testimonio.name}
               </h2>
-              <p className="text-gray-600 font-normal text-center mt-4 text-base">
+              <p className="text-[#404552] font-normal text-center mt-2 text-base">
                 &quot;{testimonio.description}&quot;
               </p>
             </div>
@@ -58,7 +64,7 @@ export const Testimonials = () => {
       {flag && (
         <button
           onClick={handlePrev}
-          className="absolute h-[64px] w-[64px] left-5 top-1/3 transform bg-secondary/50 p-2 rounded-full flex items-center justify-center"
+          className="mobile:hidden absolute h-[64px] w-[64px] left-5 top-1/3 transform bg-secondary/50 p-2 rounded-full tablet:flex items-center justify-center"
         >
           <Image
             src={arrow}
@@ -71,7 +77,7 @@ export const Testimonials = () => {
       )}
       <button
         onClick={handleNext}
-        className="absolute h-[64px] w-[64px] right-5 top-1/3 transform bg-secondary/50 p-2 rounded-[35px] flex items-center justify-center"
+        className="mobile:hidden absolute h-[64px] w-[64px] right-5 top-1/3 transform bg-secondary/50 p-2 rounded-[35px] tablet:flex items-center justify-center "
       >
         <Image
           src={arrow}
