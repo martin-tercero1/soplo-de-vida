@@ -6,7 +6,6 @@ import { About } from "@/components/home/About";
 import { Donate } from "@/components/home/Donate";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Contact } from "@/components/home/Contact";
-import { Footer } from "@/components/home/Footer";
 import { DonatePopUp } from "@/components/home/Donate/DonatePopUp";
 
 import { useState } from "react";
@@ -32,13 +31,12 @@ export default function Home() {
     <>
       <div className={mergedClass}>
         <Header togglePopUp={togglePopUp} ></Header>
-        <HeroCarousel></HeroCarousel>
+        <HeroCarousel togglePopUp={togglePopUp}></HeroCarousel>
         <About></About>
         <Donate></Donate>
         <HelpUs></HelpUs>
         <Testimonials></Testimonials>
         <Contact></Contact>
-        <Footer></Footer>
       </div>
 
       {isPopUpVisible && <DonatePopUp togglePopUp={togglePopUp} />}

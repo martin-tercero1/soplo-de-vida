@@ -1,31 +1,25 @@
 "use client"
 import { Button } from "@/components/shared/Button";
+import { CopyInformation } from "./CopyInformation";
 import { useState, useEffect } from "react";
-import copy from "clipboard-copy";
+import { useRouter } from "next/navigation";
 
 export const DonatePopUp = ({ togglePopUp }) => {
+  const router = useRouter();
+
   const customButtonStyles = [
+    "tablet:inline-block",
     "px-2",
     "py-1",
     "font-bold",
     "text-[16.5px]",
     "self-center",
+    "mb-[8px]",
+    "tablet:mb-0"
   ];
 
   const [isCopied, setIsCopied] = useState(false);
   const [isLinkClicked, setIsLinkClicked] = useState(false);
-  const bankAccountText =
-    "Nombre: FUND SOPLO DE VIDA \n Banco: MACRO \n CBU: 2590095010349204910083 \n Alias: FUND.SOPLO.DE.VIDA";
-
-  const handleCopyClick = async (text) => {
-    try {
-      await copy(text);
-      setIsCopied(true);
-    } catch (error) {
-      console.log("Failed to copy");
-      console.log(error);
-    }
-  };
 
   const handleLinkClick = () => {
     setIsLinkClicked(true);
@@ -46,7 +40,7 @@ export const DonatePopUp = ({ togglePopUp }) => {
   }, [isCopied, isLinkClicked]);
 
   return (
-    <div className="z-20 fixed ml-[-350px] left-1/2 top-1/2 top-[250px] flex flex-col items-center rounded-2xl w-[700px] border border-grey/50 py-1 px-[27px] bg-white">
+    <div className="z-20 fixed ml-[-144px] mt-[-100px] tablet:ml-[-350px] left-1/2 top-1/2 flex flex-col items-center rounded-2xl w-[288px] h-[200px] tablet:h-auto tablet:w-[700px] border border-grey/50 py-1 px-[27px] bg-white">
       {isCopied ? (
         <div className="flex flex-col items-center gap-2">
           <p className="font-semibold text-base leading-5 text-center">
@@ -59,70 +53,45 @@ export const DonatePopUp = ({ togglePopUp }) => {
         </div>
       ) : isLinkClicked ? (
         <div className="flex flex-col items-center gap-2">
-          <p className="font-semibold text-base leading-5 text-center">
-            ¡Gracias!
+          <p className="font-semibold text-[20px] tablet:text-base leading-[30px] tablet:leading-5 text-center">
+            ¡Gracias por tu aporte!
           </p>
-          <p className="font-normal text-base leading-5 text-center">
+          <p className="font-normal text-base leading-6 tablet:leading-5 text-center">
             Gracias por colaborar con Soplo de Vida. Todas las donaciones
             recibidas son para el cuidado de los perritos y gatitos del refugio.
           </p>
+
+          <Button
+            variant="primary"
+            size="large"
+            customStyles={customButtonStyles}
+            text="Cerrar"
+          />
         </div>
       ) : (
         <>
           <span onClick={togglePopUp} className="cursor-pointer place-self-end">
             <img src="/close.svg" alt="" />
           </span>
-          <h4 className="text-primary text-xl font-bold leading-3">Donar</h4>
-          <div className="flex mt-5 w-full pb-3">
-            <div className="w-1/2">
-              <div className="flex flex-col w-full border-r border-secondary gap-1">
-                <p className="text-center font-medium text-md leading-8 mb-1">
-                  Transferencia
-                </p>
-                <p className="font-normal text-md leading-8">
-                  Nombre:{" "}
-                  <span className="font-bold leading-5 text-base">
-                    FUND SOPLO DE VIDA
-                  </span>
-                </p>
-                <p className="font-normal text-md leading-8">
-                  Banco:{" "}
-                  <span className="font-bold leading-5 text-base">MACRO</span>
-                </p>
-                <p className="font-normal text-md leading-8">
-                  CBU:{" "}
-                  <span className="font-bold leading-5 text-base">
-                    2590095010349204910083
-                  </span>
-                  <button
-                    onClick={() => handleCopyClick("2590095010349204910083")}
-                    className="ml-[8px]"
-                  >
-                    <img src="/copy.svg" alt="" />
-                  </button>
-                </p>
-                <p className="font-normal text-md leading-8">
-                  Alias:{" "}
-                  <span className="font-bold leading-5 text-base">
-                    FUND.SOPLO.DE.VIDA
-                  </span>
-                  <button
-                    onClick={() => handleCopyClick("FUND.SOPLO.DE.VIDA")}
-                    className="ml-[8px] "
-                  >
-                    <img src="/copy.svg" alt="" />
-                  </button>
-                </p>
-
-                <Button
-                  variant="secondary"
-                  size="large"
-                  customStyles={customButtonStyles}
-                  text="Copiar todos los datos"
-                  onClick={() => handleCopyClick(bankAccountText)}
-                />
-              </div>
-            </div>
+          <h4 className="text-primary tablet:text-xl text-base font-bold leading-5 tablet:leading-3 mb-1 tablet:mb-0">
+            Donar
+          </h4>
+          <Button
+            variant="primary"
+            size="large"
+            customStyles={customButtonStyles}
+            text="Mercado Pago"
+            link="https://link.mercadopago.com.ar/soplodevida"
+          />
+          <Button
+            variant="secondary"
+            size="large"
+            customStyles={customButtonStyles}
+            text="Transferencia"
+            onClick={() => router.push('/transferir')}
+          />
+          <div className="hidden tablet:flex mt-5 w-full pb-3">
+            <CopyInformation setIsCopied={setIsCopied}></CopyInformation>
 
             <div className="w-1/2">
               <div className="flex flex-col w-full gap-1">
