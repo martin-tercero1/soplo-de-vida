@@ -10,8 +10,10 @@ export const Button = ({ variant, size, text, customStyles=[], link, onClick }) 
       {
         "bg-primary": variant === "primary",
         "bg-transparent": variant === "secondary",
-        outline: variant === "secondary",
+        "laptop:bg-white tablet:bg-white mobile:bg-transparent": variant === "tertiary",  
+        outline: variant === "secondary" || "tertiary",
         "outline-primary": variant === "secondary",
+        "outline-grey": variant === "tertiary",
         "text-white": variant === "primary",
         "text-primary": variant === "secondary",
         "hover:outline-2": variant === "secondary"
