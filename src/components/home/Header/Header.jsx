@@ -72,14 +72,6 @@ export const Header = ({ togglePopUp }) => {
                   <li onClick={() => setIsNavOpen(false)}>
                     <a
                       className="font-medium leading-5 text-base hover:font-bold text-black"
-                      href="#nosotros"
-                    >
-                      Nosotros
-                    </a>
-                  </li>
-                  <li onClick={() => setIsNavOpen(false)}>
-                    <a
-                      className="font-medium leading-5 text-base hover:font-bold text-black"
                       href="#testimonios"
                     >
                       Testimonios

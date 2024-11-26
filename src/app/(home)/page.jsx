@@ -32,8 +32,8 @@ export default function Home() {
       <div className={mergedClass}>
         <Header togglePopUp={togglePopUp} ></Header>
         <HeroCarousel togglePopUp={togglePopUp}></HeroCarousel>
-        <About></About>
-        <Donate></Donate>
+        {/* <About></About> */}
+        {/* <Donate></Donate> */}
         <HelpUs></HelpUs>
         <Testimonials></Testimonials>
         <Contact></Contact>

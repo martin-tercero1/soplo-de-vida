@@ -56,7 +56,7 @@ export const HelpUs = () => {
                 buttonText={'Quiero transitar'}
             />
         </div>
-        <div className="w-[619px] h-fit bg-white flex flex-col rounded-lg m-2 items-center shadow-md p-1">
+        <div className="hidden laptop:flex w-[619px] h-fit bg-white  flex-col rounded-lg m-2 items-center shadow-md p-1">
             <h3 className="font-bold text-[#404552] text-[18px]">¡Agradecemos tu colaboración!</h3>
             <p className="text-gray-600 font-small">Con un pequeño gesto ayudás a varios soplitos a ser felices</p>
         </div>
