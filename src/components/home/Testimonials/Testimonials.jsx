@@ -52,6 +52,7 @@ export const Testimonials = () => {
                 height={250}
                 width={250}
                 quality={100}
+                priority
                 className={`laptop:h-[323px] laptop:w-[298px] mobile:h-[240px] mobile:w-[275px] rounded-lg ${
                   testimonio.border ? testimonio.border : ""
                 } object-cover object-top`}
@@ -96,7 +97,7 @@ export const Testimonials = () => {
 
       {/* MOBILE Y TABLET */}
 
-      <div className="overflow-hidden w-full relative laptop:hidden tablet:flex justify-center pl-4 ">
+      <div className="overflow-hidden w-full relative laptop:hidden tablet:flex justify-center">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           slidesPerView="auto"
@@ -118,7 +119,7 @@ export const Testimonials = () => {
               slidesPerView: 3,
             },
           }}
-          className="flex space-x-3 overflow-hidden"
+          className="flex overflow-hidden mobile:w-[300px] mobile:h-[550px] tablet:w-auto tablet:h-auto"
         >
           {testimonios.map((testimonio, index) => (
             <SwiperSlide
@@ -131,9 +132,10 @@ export const Testimonials = () => {
                 height={250}
                 width={250}
                 quality={100}
+                priority
                 className={`laptop:h-[323px] laptop:w-[298px] mobile:h-[240px] mobile:w-[275px] rounded-lg ${
                   testimonio.border ? testimonio.border : ""
-                } object-cover object-top mobile:ml-3`}
+                } object-cover object-top`}
               />
               <h2 className="font-medium text-[#404552] text-center text-md mt-2">
                 {testimonio.name}

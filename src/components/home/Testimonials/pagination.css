@@ -4,9 +4,9 @@
 
 @layer utilities {
   .custom-bullet {
-    @apply bg-grey rounded-full transition-all justify-center tablet:hidden;
+    @apply w-[11px] h-[11px] bg-grey rounded-full transition-all justify-center tablet:hidden;
   }
   .custom-bullet-active {
-    @apply bg-primary scale-110 tablet:hidden;
+    @apply bg-[#50276A] scale-110 tablet:hidden;
   }
 }
