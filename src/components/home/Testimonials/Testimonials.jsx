@@ -27,9 +27,9 @@ export const Testimonials = () => {
   return (
     <section
       id="testimonios"
-      className="w-auto tablet:h-[743px] mobile:h-[650px] flex flex-col items-center bg-white relative"
+      className="w-auto tablet:h-[650px] mobile:h-[650px] flex flex-col items-center bg-white relative"
     >
-      <h1 className="font-bold text-black tablet:text-xl mobile:text-md text-center tablet:mb-7 mobile:mb-2 mt-1">
+      <h1 className="font-bold text-black tablet:text-xl mobile:text-md text-center tablet:mb-4 mobile:mb-2 mt-1">
         Testimonios
       </h1>
 
@@ -119,7 +119,7 @@ export const Testimonials = () => {
               slidesPerView: 3,
             },
           }}
-          className="flex overflow-hidden mobile:w-[300px] mobile:h-[550px] tablet:w-auto tablet:h-auto px-1"
+          className="flex overflow-hidden mobile:w-[300px] mobile:h-[550px] tablet:w-auto tablet:h-auto tablet:px-[7px]"
         >
           {testimonios.map((testimonio, index) => (
             <SwiperSlide
