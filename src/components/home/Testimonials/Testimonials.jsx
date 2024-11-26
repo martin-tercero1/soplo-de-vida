@@ -119,12 +119,12 @@ export const Testimonials = () => {
               slidesPerView: 3,
             },
           }}
-          className="flex overflow-hidden mobile:w-[300px] mobile:h-[550px] tablet:w-auto tablet:h-auto"
+          className="flex overflow-hidden mobile:w-[300px] mobile:h-[550px] tablet:w-auto tablet:h-auto px-1"
         >
           {testimonios.map((testimonio, index) => (
             <SwiperSlide
               key={index}
-              className="justify-center text-center overflow-hidden w-[326px] tablet:h-[570px] p-1 pb-4 flex-shrink-0"
+              className="justify-center text-center overflow-hidden w-[326px] tablet:h-[570px] p-1 pb-4 flex-shrink-0 border-[0.5px] border-opacity-80 border-[#CECECE] rounded-2xl tablet:mr-1"
             >
               <Image
                 src={testimonio.picture}
