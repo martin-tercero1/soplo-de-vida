@@ -4,6 +4,12 @@ import testimonios from "./dataTestimonials";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import arrow from "../../../../public/arrow.svg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "./pagination.css";
 
 export const Testimonials = () => {
   const scrollRef = useRef(null);
@@ -27,7 +33,7 @@ export const Testimonials = () => {
         Testimonios
       </h1>
 
-      <div className="overflow-hidden w-full relative flex justify-center pl-8">
+      <div className="overflow-hidden w-full relative mobile:hidden tablet:hidden laptop:flex justify-center pl-8">
         <motion.div
           ref={scrollRef}
           className={`flex space-x-3 overflow-hidden ${
@@ -64,7 +70,7 @@ export const Testimonials = () => {
       {flag && (
         <button
           onClick={handlePrev}
-          className="mobile:hidden absolute h-[64px] w-[64px] left-5 top-1/3 transform bg-secondary/50 p-2 rounded-full tablet:flex items-center justify-center"
+          className="absolute h-[64px] w-[64px] left-5 top-1/3 transform bg-secondary/50 p-2 rounded-full mobile:hidden tablet:hidden laptop:flex items-center justify-center"
         >
           <Image
             src={arrow}
@@ -77,7 +83,7 @@ export const Testimonials = () => {
       )}
       <button
         onClick={handleNext}
-        className="mobile:hidden absolute h-[64px] w-[64px] right-5 top-1/3 transform bg-secondary/50 p-2 rounded-[35px] tablet:flex items-center justify-center "
+        className="absolute h-[64px] w-[64px] right-5 top-1/3 transform bg-secondary/50 p-2 rounded-[35px] mobile:hidden tablet:hidden laptop:flex items-center justify-center "
       >
         <Image
           src={arrow}
@@ -87,6 +93,58 @@ export const Testimonials = () => {
           className="w-[16.74px] h-[35.56px]"
         />
       </button>
+
+      {/* MOBILE Y TABLET */}
+
+      <div className="overflow-hidden w-full relative laptop:hidden tablet:flex justify-center pl-4 ">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          slidesPerView="auto"
+          pagination={{
+            clickable: true,
+            bulletClass: "swiper-pagination-bullet custom-bullet",
+            bulletActiveClass:
+              "swiper-pagination-bullet-active custom-bullet-active",
+          }}
+          // autoplay={{
+          //   delay: 3000,
+          //   disableOnInteraction: true,
+          // }}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            744: {
+              slidesPerView: 3,
+            },
+          }}
+          className="flex space-x-3 overflow-hidden"
+        >
+          {testimonios.map((testimonio, index) => (
+            <SwiperSlide
+              key={index}
+              className="justify-center text-center overflow-hidden w-[326px] tablet:h-[570px] p-1 pb-4 flex-shrink-0"
+            >
+              <Image
+                src={testimonio.picture}
+                alt={`${testimonio.name}'s picture`}
+                height={250}
+                width={250}
+                quality={100}
+                className={`laptop:h-[323px] laptop:w-[298px] mobile:h-[240px] mobile:w-[275px] rounded-lg ${
+                  testimonio.border ? testimonio.border : ""
+                } object-cover object-top mobile:ml-3`}
+              />
+              <h2 className="font-medium text-[#404552] text-center text-md mt-2">
+                {testimonio.name}
+              </h2>
+              <p className="text-[#404552] font-normal text-center mt-2 text-base mb-5">
+                &quot;{testimonio.description}&quot;
+              </p>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   );
 };
