@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
+import arrow from "../../../../public/arrow.svg";
 import testimonios from "./dataTestimonials";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import arrow from "../../../../public/arrow.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -84,7 +84,7 @@ export const Testimonials = () => {
       )}
       <button
         onClick={handleNext}
-        className="absolute h-[64px] w-[64px] right-5 top-1/3 transform bg-secondary/50 p-2 rounded-[35px] mobile:hidden tablet:hidden laptop:flex items-center justify-center "
+        className="absolute h-[64px] w-[64px] right-5 top-1/3 transform bg-secondary/50 p-2 rounded-[35px] mobile:hidden tablet:hidden laptop:flex items-center justify-center"
       >
         <Image
           src={arrow}
@@ -107,10 +107,10 @@ export const Testimonials = () => {
             bulletActiveClass:
               "swiper-pagination-bullet-active custom-bullet-active",
           }}
-          // autoplay={{
-          //   delay: 3000,
-          //   disableOnInteraction: true,
-          // }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: true,
+          }}
           breakpoints={{
             320: {
               slidesPerView: 1,
@@ -124,7 +124,8 @@ export const Testimonials = () => {
           {testimonios.map((testimonio, index) => (
             <SwiperSlide
               key={index}
-              className="justify-center text-center overflow-hidden w-[326px] tablet:h-[570px] p-1 pb-4 flex-shrink-0 border-[0.5px] border-opacity-80 border-[#CECECE] rounded-2xl tablet:mr-1"
+              className="justify-center text-center overflow-hidden w-[326px] tablet:h-[570px] p-1 pb-4 flex-shrink-0
+               border-[0.5px] border-opacity-80 border-[#CECECE] rounded-2xl tablet:mr-1"
             >
               <Image
                 src={testimonio.picture}
