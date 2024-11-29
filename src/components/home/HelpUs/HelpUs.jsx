@@ -1,16 +1,16 @@
 import { HelpUsCards } from "./HelpUsCards";
 import { useMediaQuery } from "@uidotdev/usehooks";
-import image1 from "../../../../public/help-us-1.png";
-import image2 from "../../../../public/help-us-2.png";
-import image3 from "../../../../public/help-us-3.png";
-import image4 from "../../../../public/help-us-4.png";
+import image1 from "@/home/help-us-1.png";
+import image2 from "@/home/help-us-2.png";
+import image3 from "@/home/help-us-3.png";
+import image4 from "@/home/help-us-4.png";
 
 export const HelpUs = () => {
     const isLargeDevice = useMediaQuery(
         "only screen and (min-width : 1023px)"
     );
     return <section
-        id="ayudanos"
+        id="ayudar"
         className="flex flex-col items-center justify-center gap-[18px] h-fit md:bg-white lg:bg-secondary p-5 mobile:p-1"
     >
         <h2 className="text-xl font-bold mobile:text-md">¿Cómo ayudar?</h2>

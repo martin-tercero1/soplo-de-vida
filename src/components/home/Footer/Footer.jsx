@@ -4,13 +4,14 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 
 export const Footer = () => {
   const isSmallDevice = useMediaQuery(
-    "only screen and (max-width : 1443px)"
-  )
+    "only screen and (max-width : 1439px)"
+  );
+  console.log(isSmallDevice)
   const isDesktop = useMediaQuery(
     "only screen and (min-width : 1440px)"
   );
 
-  return <section className="w-full bg-grey desktop:bg-secondary flex flex-col justify-evenly p-4 gap-5 items-start desktop:items-center">
+  return <footer className="w-full bg-grey desktop:bg-secondary flex flex-col justify-evenly p-4 gap-5 items-start desktop:items-center">
     <div className="w-full flex flex-col tablet:flex-row justify-between items-center gap-1 tablet:items-start">
       <div className="flex tablet:flex-row flex-row-reverse w-[100%] tablet:w-auto desktop:w-2/6 justify-between desktop:justify-center gap-5">
         {
@@ -61,7 +62,7 @@ export const Footer = () => {
           >
             <img
               className="bg-primary p-1 rounded-lg w-[48px] h-[48px]"
-              src="/ig-logo.svg"
+              src="/icons/ig-logo.svg"
               alt="Instagram logo"
             />
           </a>
@@ -70,7 +71,7 @@ export const Footer = () => {
           >
             <img
               className="bg-[#1877F2] p-1 rounded-lg w-[48px] h-[48px]"
-              src="/fb-logo.svg"
+              src="/icons/fb-logo.svg"
               alt="Facebook logo"
             />
           </a>
@@ -79,7 +80,7 @@ export const Footer = () => {
           >
             <img
               className="bg-white p-1 rounded-lg w-[48px] h-[48px]"
-              src="/gmail-logo.svg"
+              src="/icons/gmail-logo.svg"
               alt="Gmail logo"
             />
           </a>
@@ -87,5 +88,5 @@ export const Footer = () => {
       </div>
     </div>
     <span className="text-sm font-bold text-white desktop:text-grey">© 2024, Fundación Soplo de Vida</span>
-  </section>;
+  </footer>;
 };

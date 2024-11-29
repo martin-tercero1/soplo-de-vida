@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import arrow from "../../../../public/arrow.svg";
+import arrow from "@/icons/arrow.svg";
 import testimonios from "./dataTestimonials";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";

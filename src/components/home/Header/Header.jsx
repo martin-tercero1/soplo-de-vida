@@ -1,31 +1,63 @@
 import { Antonio } from "next/font/google";
 import { Button } from "@/components/shared/Button";
-import { useState } from "react";
-const antonio = Antonio({subsets: ['latin']})
+import { useEffect, useState } from "react";
+import Image from "next/image";
+const antonio = Antonio({ subsets: ["latin"] });
+
+import { twMerge } from "tailwind-merge";
+import clsx from "clsx";
 
 export const Header = ({ togglePopUp }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [header, setHeader] = useState(false);
+
+
+  const scrollHeader = () => {
+    if (window.scrollY >= 40) {
+      setHeader(true)
+    } else {
+      setHeader(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHeader)
+
+    return () => {window.addEventListener('scroll', scrollHeader)}
+  }, []);
+
+    const headerClass = clsx("flex", "z-10",  "w-full", "justify-between", "laptop:h-[88px]", "h-[60px]", "py-[15px]", "laptop:px-5", "tablet:px-3", "mobile:px-3", "bg-white", "hideMenuNav", {
+      "fixed": header === true,
+    });
+
+    const mergedClass = twMerge(headerClass);
+
   return (
-    <>
-      <header className="flex justify-between laptop:h-[88px] mobile:h-[60px] py-[15px] laptop:px-5 tablet:px-3 mobile:px-3 bg-white">
+      <header className={mergedClass}>
         <div className="flex justify-center items-center">
           {/* Mobile Logo */}
-          <img
+          <Image
             src="/logo_mobile_tablet.png"
+            width={34}
+            height={33}
             alt="Soplo de Vida Mobile Logo"
             className="block tablet:hidden w-[34px] h-[32px]"
           />
 
           {/* Tablet Logo */}
-          <img
+          <Image
             src="/logo_mobile_tablet.png"
+            width={34}
+            height={33}
             alt="Soplo de Vida Tablet Logo"
             className="hidden tablet:block laptop:hidden"
           />
 
           {/* Desktop Logo */}
-          <img
+          <Image
             src="/logo.png"
+            width={57}
+            height={60}
             alt="Soplo de Vida Desktop Logo"
             className="hidden laptop:block"
           />
@@ -35,7 +67,7 @@ export const Header = ({ togglePopUp }) => {
             Soplo de vida
           </span>
         </div>
-        
+
         <div className="flex items-center">
           <nav>
             <section className="MOBILE-MENU flex lg:hidden">
@@ -43,17 +75,25 @@ export const Header = ({ togglePopUp }) => {
                 className="HAMBURGER-ICON space-y-2"
                 onClick={() => setIsNavOpen((prev) => !prev)}
               >
-                <img src="/burger_menu.svg" alt="burger_menu" />
+                <Image
+                  src="/icons/burger_menu.svg"
+                  width={25}
+                  height={24}
+                  alt="burger_menu"
+                />
               </div>
               <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
                 <div
                   className="self-end mr-3 mt-3"
                   onClick={() => setIsNavOpen(false)}
                 >
-                  <img src="/xicon.svg" className="w-3"/>
+                  <img src="/icons/xicon.svg" className="w-3" />
                 </div>
                 <ul className=" flex basis-4/6 flex-col items-center justify-between min-h-[250px] w-[90%] py-1">
-                  <li className="bg-secondary w-full text-center p-3 rounded-md" onClick={() => setIsNavOpen(false)}>
+                  <li
+                    className="bg-secondary w-full text-center p-3 rounded-md"
+                    onClick={() => setIsNavOpen(false)}
+                  >
                     <a
                       className="font-medium leading-5 text-base hover:font-bold text-black block"
                       href="#inicio"
@@ -146,24 +186,5 @@ export const Header = ({ togglePopUp }) => {
           </nav>
         </div>
       </header>
-      <style>{`
-      .hideMenuNav {
-        display: none;
-      }
-      .showMenuNav {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background: white;
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    `}</style>
-    </>
   );
 };

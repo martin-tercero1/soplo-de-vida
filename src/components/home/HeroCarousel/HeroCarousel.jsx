@@ -71,7 +71,7 @@ export const HeroCarousel = ({togglePopUp}) => {
     "laptop:h-[481px]",
     "flex",
     "flex-col",
-    "tablet:h-[296px]"
+    "tablet:h-[296px]",
   );
 
   const mergedClass = twMerge(HeroCarouselClass);

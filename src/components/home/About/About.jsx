@@ -8,7 +8,7 @@ export const About = () => {
             <div className="bg-[#FADBC7] px-7 py-6 rounded-xl">
               <img
                 className="mx-auto"
-                src="/hiking.png"
+                src="/home/hiking.png"
                 alt="imagen de referencia"
               />
             </div>
@@ -28,7 +28,7 @@ export const About = () => {
             <div className="bg-[#D6EDF0] px-7 py-6 rounded-xl">
               <img
                 className="mx-auto"
-                src="/public.png"
+                src="/home/public.png"
                 alt="imagen de referencia"
               />
             </div>

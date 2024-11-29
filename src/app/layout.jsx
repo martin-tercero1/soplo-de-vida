@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <meta name="geo.placename" content="Argentina"></meta>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${nunito.className} antialiased`}>
+      <body className={`${nunito.className} antialiased `}>
         {children}
         <Footer></Footer>
       </body>
