@@ -8,7 +8,6 @@ export const DonatePopUp = ({ togglePopUp }) => {
   const router = useRouter();
 
   const customButtonStyles = [
-    "tablet:inline-block",
     "px-2",
     "py-1",
     "font-bold",
@@ -40,7 +39,7 @@ export const DonatePopUp = ({ togglePopUp }) => {
   }, [isCopied, isLinkClicked]);
 
   return (
-    <div className="z-20 fixed ml-[-144px] mt-[-100px] tablet:ml-[-350px] left-1/2 top-1/2 flex flex-col items-center rounded-2xl w-[288px] h-[200px] tablet:h-auto tablet:w-[700px] border border-grey/50 py-1 px-[27px] bg-white">
+    <div className="z-20 fixed ml-[-144px] mt-[-100px] tablet:mt-[-300px] tablet:ml-[-350px] left-1/2 top-1/2 flex flex-col items-center rounded-2xl w-[288px] h-[200px] tablet:h-auto tablet:w-[700px] border border-grey/50 py-1 px-[27px] bg-white">
       {isCopied ? (
         <div className="flex flex-col items-center gap-2">
           <p className="font-semibold text-base leading-5 text-center">
@@ -71,7 +70,7 @@ export const DonatePopUp = ({ togglePopUp }) => {
       ) : (
         <>
           <span onClick={togglePopUp} className="cursor-pointer place-self-end">
-            <img src="/close.svg" alt="" />
+            <img src="/icons/close.svg" alt="" />
           </span>
           <h4 className="text-primary tablet:text-xl text-base font-bold leading-5 tablet:leading-3 mb-1 tablet:mb-0">
             Donar
@@ -79,18 +78,18 @@ export const DonatePopUp = ({ togglePopUp }) => {
           <Button
             variant="primary"
             size="large"
-            customStyles={customButtonStyles}
+            customStyles={[...customButtonStyles, "tablet:hidden"]}
             text="Mercado Pago"
             link="https://link.mercadopago.com.ar/soplodevida"
           />
           <Button
             variant="secondary"
             size="large"
-            customStyles={customButtonStyles}
+            customStyles={[...customButtonStyles, "tablet:hidden"]}
             text="Transferencia"
-            onClick={() => router.push('/transferir')}
+            onClick={() => router.push("/transferir")}
           />
-          <div className="hidden tablet:flex mt-5 w-full pb-3">
+          <div className="hidden tablet:inline-flex mt-5 w-full pb-3">
             <CopyInformation setIsCopied={setIsCopied}></CopyInformation>
 
             <div className="w-1/2">

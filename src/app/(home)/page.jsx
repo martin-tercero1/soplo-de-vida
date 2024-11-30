@@ -32,9 +32,9 @@ export default function Home() {
       <div className={mergedClass}>
         <Header togglePopUp={togglePopUp} ></Header>
         <HeroCarousel togglePopUp={togglePopUp}></HeroCarousel>
-        {/* <About></About> */}
-        {/* <Donate></Donate> */}
-        <HelpUs></HelpUs>
+        <About></About>
+        <Donate togglePopUp={togglePopUp}></Donate>
+        <HelpUs togglePopup={togglePopUp}></HelpUs>
         <Testimonials></Testimonials>
         <Contact></Contact>
       </div>

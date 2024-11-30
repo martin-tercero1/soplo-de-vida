@@ -15,6 +15,7 @@ export const Slide = ({ title, subtitle, description, mobileDescription, backgro
       "flex",
       "items-center",
       "justify-center",
+      "outline-primary"
     ];
 
   const SlideClass = clsx(
