@@ -1,15 +1,28 @@
-'use client';
+"use client";
+import { useState, useEffect } from "react"; // Import useState and useEffect hooks
 import { Button } from "@/components/shared/Button";
-import { useMediaQuery } from "@uidotdev/usehooks";
 
 export const Footer = () => {
-  const isSmallDevice = useMediaQuery(
-    "only screen and (max-width : 1439px)"
-  );
-  console.log(isSmallDevice)
-  const isDesktop = useMediaQuery(
-    "only screen and (min-width : 1440px)"
-  );
+  const [isSmallDevice, setIsSmallDevice] = useState(false); // State to track small device
+  const [isDesktop, setIsDesktop] = useState(false); // State to track desktop size
+
+  // useEffect to handle client-side media query check
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallDevice(
+        window.matchMedia("only screen and (max-width: 1439px)").matches
+      );
+      setIsDesktop(
+        window.matchMedia("only screen and (min-width: 1440px)").matches
+      );
+    };
+
+    handleResize(); // Check initial size on mount
+    window.addEventListener("resize", handleResize); // Listen for window resize
+
+    // Cleanup event listener on unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty dependency array to only run this effect on mount
 
   return (
     <footer className="w-full bg-grey desktop:bg-secondary flex flex-col justify-evenly p-4 gap-5 items-start desktop:items-center">
@@ -55,9 +68,9 @@ export const Footer = () => {
             </a>
           </div>
         </div>
-        {isDesktop ? (
+        {isDesktop && (
           <div className="flex flex-col items-center w-auto desktop:w-2/6 p-2">
-            <h3 className="text-md font-bold ">¡Ayudá a un Soplito!</h3>
+            <h3 className="text-md font-bold">¡Ayudá a un Soplito!</h3>
             <Button
               variant="primary"
               size="medium"
@@ -71,8 +84,6 @@ export const Footer = () => {
               Donar
             </Button>
           </div>
-        ) : (
-          <></>
         )}
         <div className="flex flex-row desktop:flex-col items-center w-[100%] tablet:w-auto desktop:w-2/6 h-fit">
           <p className="text-sm font-bold text-white desktop:text-grey w-[128px]">
