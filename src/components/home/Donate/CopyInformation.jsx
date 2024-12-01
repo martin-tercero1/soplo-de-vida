@@ -14,13 +14,7 @@ export const CopyInformation = ({setIsCopied}) => {
     "w-[292px]",
     "h-[44px]",
     "mt-[24px]",
-    "tablet:px-2",
-    "tablet:py-1",
-    "tablet:font-bold",
-    "tablet:text-[16.5px]",
-    "tablet:self-center",
-    "tablet:mb-[8px]",
-    "tablet:mb-0",
+    "tablet:bg-primary tablet:mb-0 tablet:mb-[8px] tablet:self-center tablet:text-white tablet:text-[16.5px] tablet:font-bold tablet:py-1 tablet:px-2",
   ];
 
     const bankAccountText =
@@ -40,20 +34,20 @@ export const CopyInformation = ({setIsCopied}) => {
   return (
     <div className="w-screen tablet:w-1/2 tablet:mx-0">
       <div className="flex flex-col w-full tablet:border-r border-secondary gap-1">
-        <p className="mx-1 hidden tablet:inline-block text-center font-medium text-md leading-8 mb-1">
+        <p className="mx-[12px] hidden tablet:inline-block text-center font-medium text-md leading-8 mb-1">
           Transferencia
         </p>
-        <p className="mx-1 font-normal text-base tablet:text-md leading-5 tablet:leading-8">
+        <p className="mx-[12px] font-normal text-base tablet:text-md leading-5 tablet:leading-8">
           Nombre: <br className="tablet:hidden" />
           <span className="font-bold leading-5 text-base">
             CUENTAS CORRIENTES
           </span>
         </p>
-        <p className="mx-1 font-normal text-base tablet:text-md leading-5 tablet:leading-8">
+        <p className="mx-[12px] font-normal text-base tablet:text-md leading-5 tablet:leading-8">
           Banco: <br className="tablet:hidden" />
           <span className="font-bold leading-5 text-base">MACRO</span>
         </p>
-        <p className="mx-1 font-normal text-base tablet:text-md leading-5 tablet:leading-8">
+        <p className="mx-[12px] font-normal text-base tablet:text-md leading-5 tablet:leading-8">
           CBU:
           <br className="tablet:hidden" />
           <span className="font-bold leading-5 text-base">
@@ -63,10 +57,10 @@ export const CopyInformation = ({setIsCopied}) => {
             onClick={() => handleCopyClick("2590095010349204910083")}
             className="ml-[8px]"
           >
-            <img src="/copy.svg" alt="" />
+            <img src="/icons/copy.svg" alt="" />
           </button>
         </p>
-        <p className="mx-1 font-normal text-base tablet:text-md leading-5 tablet:leading-8">
+        <p className="mx-[12px] font-normal text-base tablet:text-md leading-5 tablet:leading-8">
           Alias: <br className="tablet:hidden" />
           <span className="font-bold leading-5 text-base">
             EDECAN.MENTIA.ENTERO
@@ -75,7 +69,7 @@ export const CopyInformation = ({setIsCopied}) => {
             onClick={() => handleCopyClick("FUND.SOPLO.DE.VIDA")}
             className="ml-[8px] "
           >
-            <img src="/copy.svg" alt="" />
+            <img src="/icons/copy.svg" alt="" />
           </button>
         </p>
 

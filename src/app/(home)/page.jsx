@@ -18,7 +18,6 @@ export default function Home() {
 
     const homeClass = clsx("content-wrapper", {
     "blurred": isPopUpVisible === true,
-    "bg-primary": isPopUpVisible === true
   });
 
   const togglePopUp = () => {
@@ -30,7 +29,7 @@ export default function Home() {
   return (
     <>
       <div className={mergedClass}>
-        <Header togglePopUp={togglePopUp} ></Header>
+        <Header togglePopUp={togglePopUp}></Header>
         <HeroCarousel togglePopUp={togglePopUp}></HeroCarousel>
         <About></About>
         <Donate togglePopUp={togglePopUp}></Donate>

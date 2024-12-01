@@ -2,7 +2,7 @@ import Image from "next/image";
 import { DonatePopUp } from "./DonatePopUp";
 import { Button } from "@/components/shared/Button";
 
-export const Donate = ({togglePopup}) => {
+export const Donate = ({ togglePopUp }) => {
   const customButtomStyles = [
     "w-[284px]",
     "h-[35px]",
@@ -18,13 +18,12 @@ export const Donate = ({togglePopup}) => {
         id="nosotros"
         className="grid grid-cols-1 gap-[19px] w-screen h-[594px] tablet:h-[385px] tablet:grid-cols-2 tablet:grid-rows-3 tablet:mt-4 tablet:gap-x-[1px] tablet:place-items-center laptop:max-w-[1216px] laptop:grid-rows-1 laptop:px-[40px] laptop:gap-x-[24px] laptop:gap-y-[1px]"
       >
-        <div className="min-h-[222px] max-h-[289px] tablet:h-[289px] w-[320px] laptop:w-full laptop:h-[465px] tablet:row-span-2 laptop:row-span-2 place-self-center relative  ">
+        <div className="min-h-[222px] max-h-[289px] tablet:h-[289px] w-[320px] laptop:w-full laptop:h-[465px] tablet:row-span-2 laptop:row-span-2 place-self-center relative">
           <Image
             src="/home/nosotros.png"
             alt="Foto de equipo Soplo de Vida"
             fill
-
-            className="h-auto w-full rounded-[8px] laptop:rounded-[14px] bg-cover"
+            className="rounded-[8px] laptop:rounded-[14px] object-cover"
           />
         </div>
 
@@ -66,7 +65,7 @@ export const Donate = ({togglePopup}) => {
               tablet: "Donar",
               desktop: "Donar",
             }}
-            onClick={togglePopup}
+            onClick={togglePopUp}
             variant="primary"
             customStyles={customButtomStyles}
           />

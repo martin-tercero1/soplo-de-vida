@@ -14,7 +14,8 @@ export const DonatePopUp = ({ togglePopUp }) => {
     "text-[16.5px]",
     "self-center",
     "mb-[8px]",
-    "tablet:mb-0"
+    "tablet:mb-0",
+    "tablet:w-[292px] tablet:h-[44px]"
   ];
 
   const [isCopied, setIsCopied] = useState(false);
@@ -39,7 +40,7 @@ export const DonatePopUp = ({ togglePopUp }) => {
   }, [isCopied, isLinkClicked]);
 
   return (
-    <div className="z-20 fixed ml-[-144px] mt-[-100px] tablet:mt-[-300px] tablet:ml-[-350px] left-1/2 top-1/2 flex flex-col items-center rounded-2xl w-[288px] h-[200px] tablet:h-auto tablet:w-[700px] border border-grey/50 py-1 px-[27px] bg-white">
+    <div className="z-20 fixed ml-[-144px] mt-[-100px] tablet:mt-[-300px] tablet:ml-[-350px] left-1/2 top-1/2 flex flex-col items-center rounded-2xl w-[288px] tablet:h-auto tablet:w-[700px] border border-grey/50 py-1 px-[27px] bg-white h-auto">
       {isCopied ? (
         <div className="flex flex-col items-center gap-2">
           <p className="font-semibold text-base leading-5 text-center">
@@ -65,6 +66,7 @@ export const DonatePopUp = ({ togglePopUp }) => {
             size="large"
             customStyles={customButtonStyles}
             text="Cerrar"
+            onClick={togglePopUp}
           />
         </div>
       ) : (
@@ -79,6 +81,7 @@ export const DonatePopUp = ({ togglePopUp }) => {
             variant="primary"
             size="large"
             customStyles={[...customButtonStyles, "tablet:hidden"]}
+            onClick={handleLinkClick}
             text="Mercado Pago"
             link="https://link.mercadopago.com.ar/soplodevida"
           />

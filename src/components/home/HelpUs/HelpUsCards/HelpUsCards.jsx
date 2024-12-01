@@ -27,7 +27,7 @@ export const HelpUsCards = ({
   }, []); // Empty dependency array to run the effect only once after mount
 
   return (
-    <div className="mobile:w-[100%] tablet:w-[48%] max-w-[614px] h-[auto] mobile:max-w-[280px] tablet:max-w-[100%] bg-white flex mobile:flex-col tablet:flex-row rounded-lg items-center shadow-md p-1 gap-1">
+    <div className="mobile:w-[100%] tablet:w-[48%] max-w-[614px] h-[auto] mobile:max-w-[280px] tablet:max-w-[100%] bg-white flex mobile:flex-col tablet:flex-row rounded-lg items-center shadow-md drop-shadow-md p-1 gap-1 border-[0.39px] laptop:border-2 border-[#CECECE]">
       {isSmallDevice ? (
         <div className="flex flex-row gap-1 items-start justify-between">
           <Image

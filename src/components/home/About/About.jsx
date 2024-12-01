@@ -12,6 +12,7 @@ export const About = () => {
         "Ser el nexo entre el pasado y el futuro de perros y gatos sin hogar. Encontrar el HOGAR para todos los animales que buscan crecer felices.",
       imageSrc: "/home/hiking.png",
       bgColor: "FADBC7",
+      imageAltText: "Imagen de referencia",
     },
     {
       title: "Visión",
@@ -22,6 +23,7 @@ export const About = () => {
         "Concientizar con la ACCIÓN para que todos trabajemos juntos intentando un mundo más justo para los más vulnerables.",
       imageSrc: "/home/public.png",
       bgColor: "D6EDF0",
+      imageAltText: "Imagen de referencia",
     },
     {
       title: "Valores",
@@ -32,6 +34,7 @@ export const About = () => {
         "La palabra HOGAR es sinónimo de seguridad, de calma. Todos merecemos un hogar para no pasar frío, hambre y miedo.",
       imageSrc: "/home/Vector.png",
       bgColor: "FAF5E3",
+      imageAltText: "Imagen de referencia",
     },
     {
       title: "Adopciones",
@@ -42,6 +45,7 @@ export const About = () => {
         "Adoptar es dar otra oportunidad, amar incondicionalmente y crecer con otro. Por eso, es nuestro pilar e incentivamos la adopción.",
       imageSrc: "/home/pets.png",
       bgColor: "E3DBEB",
+      imageAltText: "Imagen de referencia",
     },
   ];
 
@@ -60,6 +64,7 @@ export const About = () => {
             longDescription={card.longDescription}
             imageSrc={card.imageSrc}
             bgColor={card.bgColor}
+            imageAltText={card.imageAltText}
           />
         ))}
       </div>

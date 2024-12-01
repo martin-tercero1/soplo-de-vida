@@ -29,7 +29,7 @@ export const HelpUs = ({ togglePopup }) => {
       className="flex flex-col items-center justify-center gap-[18px] h-fit laptop:bg-secondary p-5 mobile:p-1"
     >
       <h2 className="text-xl font-bold mobile:text-md">¿Cómo ayudar?</h2>
-      <div className="overflow-hidden w-full h-fit flex flex-row justify-center flex-wrap gap-3">
+      <div className="overflow-hidden w-full h-fit flex flex-row justify-center flex-wrap gap-3 pb-1">
         <HelpUsCards
           imageUrl={image1}
           title={"Donaciones"}
