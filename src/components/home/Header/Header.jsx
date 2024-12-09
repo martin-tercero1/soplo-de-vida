@@ -26,7 +26,7 @@ export const Header = ({ togglePopUp }) => {
     return () => {window.addEventListener('scroll', scrollHeader)}
   }, []);
 
-    const headerClass = clsx("flex", "z-10",  "w-full", "justify-between", "laptop:h-[88px]", "h-[60px]", "py-[15px]", "laptop:px-5", "tablet:px-3", "mobile:px-3", "bg-white", "hideMenuNav", {
+    const headerClass = clsx("flex", "z-10",  "w-full", "justify-between", "laptop:h-[88px]", "h-[60px]", "py-[15px]", "laptop:px-5", "tablet:px-3", "mobile:px-3", "bg-white", {
       "fixed": header === true,
     });
 

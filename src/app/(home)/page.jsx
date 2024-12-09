@@ -1,23 +1,24 @@
-"use client"
+"use client";
 
 import { Header } from "@/components/home/Header";
 import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { About } from "@/components/home/About";
-import { Donate } from "@/components/home/Donate";
-import { Testimonials } from "@/components/home/Testimonials";
-import { Contact } from "@/components/home/Contact";
 import { DonatePopUp } from "@/components/home/Donate/DonatePopUp";
+import { Banner } from "@/components/nosotros/Banner/Banner";
+import { InstaFollow } from "@/components/nosotros/InstaFollow";
+import { Adopta } from "@/components/nosotros/Adopta";
+import { Aliado } from "@/components/nosotros/Aliado";
+import { Footer } from "@/components/home/Footer";
 
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
-import { HelpUs } from "@/components/home/HelpUs";
 
 export default function Home() {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
 
-    const homeClass = clsx("content-wrapper", {
-    "blurred": isPopUpVisible === true,
+  const homeClass = clsx("content-wrapper", {
+    blurred: isPopUpVisible === true,
   });
 
   const togglePopUp = () => {
@@ -26,18 +27,34 @@ export default function Home() {
 
   const mergedClass = twMerge(homeClass);
 
+  const homeURLs = [
+    { name: "Home", href: "/" },
+    { name: "Nosotros", href: "/nosotros" },
+  ];
+
   return (
     <>
       <div className={mergedClass}>
         <Header togglePopUp={togglePopUp}></Header>
         <HeroCarousel togglePopUp={togglePopUp}></HeroCarousel>
-        <About></About>
-        <Donate togglePopUp={togglePopUp}></Donate>
-        <HelpUs togglePopup={togglePopUp}></HelpUs>
-        <Testimonials></Testimonials>
-        <Contact></Contact>
+        <About />
+        <Banner
+          title="Actividades"
+          description="En Soplo de Vida realizamos eventos y actividades como capacitaciones para voluntarios, educación canina, campañas de castraciones, etc."
+          imgSrc="/home/evento.png"
+          imgAlt="Evento benefico de soplo de vida"
+        />
+        <InstaFollow />
+        <Banner
+          title="Novedades"
+          description="Encontrá aquí las novedades sobre campañas, adopciones y acciones de Soplo de Vida. "
+          imgSrc="/home/voluntariados.jpg"
+          imgAlt="Equipo de soplo de vida"
+        />
+        <Adopta />
+        <Aliado />
       </div>
-
+      <Footer urlList={homeURLs}></Footer>
       {isPopUpVisible && <DonatePopUp togglePopUp={togglePopUp} />}
     </>
   );
