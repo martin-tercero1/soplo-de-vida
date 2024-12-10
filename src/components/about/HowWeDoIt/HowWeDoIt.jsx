@@ -26,23 +26,25 @@ export default function HowWeDoIt(){
 
     return(
         <>
-            <section id="howwedoit" className="m-4">
+            <section id="howwedoit" className="mobile:m-4 desktop:mx-5">
                 <div>
-                    <h2 className="text-md text-black font-medium mb-[10px]">¿Cómo lo hacemos?</h2>
+                    <h2 className="text-md text-black font-medium desktop:font-bold mb-[10px]">¿Cómo lo hacemos?</h2>
                 </div>
-                <div className="grid grid-cols-1">
+                <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 gap-x-3">
                     {cardsInfo.map( (card, index) => (
                         <>
-                            <div className="border border-[#CECECE] rounded-xl p-2 mb-4">
-                                 <div className="w-100% h-[164px] relative">
+                            <div className="border border-[#CECECE] rounded-xl p-2 mobile:mb-4 flex mobile:flex-col desktop:flex-row gap-2">
+                                 <div className="mobile:w-[100%] h-[164px] relative">
                                     <Image
                                         className="object-cover rounded-xl"
                                         fill={true}
                                         src={card.imageSrc}
                                     />
                                  </div>
-                                <h3 className="text-base text-primary font-bold mt-1">{card.title}</h3>
-                                <p className="text-sm text-black font-bold">{card.description}</p>
+                                 <div>
+                                    <h3 className="text-base text-primary mobile:font-bold tablet:font-semibold mt-1">{card.title}</h3>
+                                    <p className="text-sm text-black mobile:font-bold tablet:font-normal">{card.description}</p>
+                                 </div>
                             </div>
                         </>                        
                     ))}

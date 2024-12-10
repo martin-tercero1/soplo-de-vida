@@ -1,3 +1,4 @@
+"use client"
 import { Antonio } from "next/font/google";
 import { Button } from "@/components/shared/Button";
 import { useEffect, useState } from "react";
