@@ -5,22 +5,26 @@ export default function HowWeDoIt(){
         {
             title: "Rescate y recuperación",
             description:"Salvamos animales en riesgo, brindándoles atención médica, alimento y un lugar seguro de forma transitoria.",
-            imageSrc: "/about/dogs.png"
+            imageSrc: "/about/dogs.png",
+            imageAlt: "Rescate de perritos"
         },
         {
             title: "Cuidados especializados",
             description: "Veterinarios y voluntarios ayudan a los soplitos a recuperar su salud con tratamientos y mucho amor.",
-            imageSrc: "/about/cat.png"
+            imageSrc: "/about/cat.png",
+            imageAlt: "Gato siendo atendido"
         },
         {
             title: "Búsqueda de hogares",
             description: "Conectamos animales con familias que les ofrecen un hogar lleno de cariño y compromiso.",
-            imageSrc:"/about/sleptDogs.png"
+            imageSrc:"/about/sleptDogs.png",
+            imageAlt: "Perritos durmiendo"
         },
         {
             title: "Educación y concientización",
             description: "Promovemos el cuidado responsable de animales a través de todas nuestros medios de comunicación.",
-            imageSrc: "/about/womanSpeaker.jpeg"
+            imageSrc: "/about/womanSpeaker.jpeg",
+            imageAlt: "Charla sobre el refugio"
         }
     ];
 
@@ -39,6 +43,7 @@ export default function HowWeDoIt(){
                                         className="object-cover rounded-xl"
                                         fill={true}
                                         src={card.imageSrc}
+                                        alt={card.imageAlt}
                                     />
                                  </div>
                                  <div>

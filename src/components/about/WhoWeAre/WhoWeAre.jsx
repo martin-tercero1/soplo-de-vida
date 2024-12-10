@@ -10,7 +10,7 @@ export default function WhoWeAre(){
                         className="w-full rounded-xl"
                         fill={true}
                         src= "/about/voluntariados.png"
-                        alt=''
+                        alt='Equipo de soplo de vida'
                     />
                 </div>
                 <div className="flex flex-col justify-center w-[100%]">
