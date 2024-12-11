@@ -1,0 +1,1 @@
+export { Adopta } from "./Adopta";

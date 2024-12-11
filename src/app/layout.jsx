@@ -1,5 +1,4 @@
 import { Nunito } from "next/font/google";
-import { Footer } from "@/components/home/Footer";
 import "./globals.css";
 
 export const metadata = {
@@ -29,7 +28,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${nunito.className} antialiased `}>
         {children}
-        <Footer></Footer>
+        
       </body>
     </html>
   );
