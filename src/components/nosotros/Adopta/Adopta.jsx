@@ -9,7 +9,7 @@ export const Adopta = () => {
           <Image
             fill
             alt="Foto de un soplito"
-            src="/home/adopta.png"
+            src="/about/perro-adopcion.webp"
             className="rounded-lg tablet:object-cover tablet:object-top"
           />
         </div>

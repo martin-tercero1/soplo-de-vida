@@ -32,13 +32,13 @@ export const Footer = ({urlList}) => {
           {isSmallDevice ? (
             <img
               className="w-[57px] h-[52px]"
-              src="/logo-soplo-de-vida.png"
+              src="/logo-soplo-de-vida.svg"
               alt="soplo-de-vida-logo"
             />
           ) : (
             <img
               className="mx-1"
-              src="/logo-texto.png"
+              src="/logo-texto.svg"
               alt="soplo-de-vida-logo"
             />
           )}

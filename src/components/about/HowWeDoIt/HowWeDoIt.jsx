@@ -5,7 +5,7 @@ export default function HowWeDoIt(){
         {
             title: "Rescate y recuperación",
             description:"Salvamos animales en riesgo, brindándoles atención médica, alimento y un lugar seguro de forma transitoria.",
-            imageSrc: "/about/dogs.png",
+            imageSrc: "/about/rescate-cachorros.webp",
             imageAlt: "Rescate de perritos"
         },
         {

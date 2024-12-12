@@ -45,10 +45,10 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "hero-slide-1": "url('/home/slide-image-1.png')",
-        "hero-slide-2": "url('/home/slide-image-2.png')",
-        "hero-slide-3": "url('/home/slide-image-3.png')",
-        "hero-slide-4": "url('/home/slide-image-4.png')",
+        "hero-slide-1": "url('/home/slide-campana1.webp')",
+        "hero-slide-2": "url('/home/slide-campana2.webp')",
+        "hero-slide-3": "url('/home/slide-campana3.webp')",
+        "hero-slide-4": "url('/home/slide-campana4.webp')",
       },
       colors: {
         background: "var(--background)",

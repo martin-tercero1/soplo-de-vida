@@ -41,14 +41,14 @@ export default function Home() {
         <Banner
           title="Actividades"
           description="En Soplo de Vida realizamos eventos y actividades como capacitaciones para voluntarios, educación canina, campañas de castraciones, etc."
-          imgSrc="/home/evento.png"
+          imgSrc="/home/evento-adopcion.webp"
           imgAlt="Evento benefico de soplo de vida"
         />
         <InstaFollow />
         <Banner
           title="Novedades"
           description="Encontrá aquí las novedades sobre campañas, adopciones y acciones de Soplo de Vida. "
-          imgSrc="/home/voluntariados.jpg"
+          imgSrc="/home/voluntarios.webp" 
           imgAlt="Equipo de soplo de vida"
         />
         <Adopta />
