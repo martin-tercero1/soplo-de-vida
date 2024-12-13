@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 const antonio = Antonio({ subsets: ["latin"] });
 
+import { sendGAEvent } from "@next/third-parties/google";
+
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
 
@@ -32,6 +34,12 @@ export const Header = ({ togglePopUp }) => {
     });
 
     const mergedClass = twMerge(headerClass);
+
+
+    const donateClick = () => {
+      togglePopUp();
+      sendGAEvent('event', 'donateButtonClicked');
+    }
 
   return (
       <header className={mergedClass}>
@@ -139,7 +147,7 @@ export const Header = ({ togglePopUp }) => {
                     variant="primary"
                     text="Donar"
                     customStyles={["w-full", ""]}
-                    onClick={togglePopUp}
+                    onClick={donateClick}
                   ></Button>
                 </ul>
               </div>
