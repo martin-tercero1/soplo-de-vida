@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^15.1.0",
     "@uidotdev/usehooks": "^2.4.1",
     "clipboard-copy": "^4.0.1",
     "clsx": "^2.1.1",

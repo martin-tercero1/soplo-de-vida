@@ -1,5 +1,6 @@
 import { Nunito } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata = {
   title: "Soplo de Vida",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         {children}
         
       </body>
+      <GoogleAnalytics gaId="G-4PZHCKWSVG" />
     </html>
   );
 }
