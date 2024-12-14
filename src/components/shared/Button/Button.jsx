@@ -87,7 +87,7 @@ export const Button = ({
   }
 
   return (
-    <button onClick={onClick} className={mergedClass}>
+    <button id="call-to-action-btn" onClick={onClick} className={mergedClass}>
       {resolvedText}
     </button>
   );
