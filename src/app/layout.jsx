@@ -1,5 +1,6 @@
 import { Nunito } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { GoogleTagManager } from '@next/third-parties/google'
 
 export const metadata = {
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
         
       </body>
       <GoogleTagManager gtmId="GTM-TPJ6N9FS" />
+      <GoogleAnalytics gaId="G-4PZHCKWSVG" />
     </html>
   );
 }
