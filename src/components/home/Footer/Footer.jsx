@@ -65,6 +65,6 @@ export const Footer = () => {
         </div>
       </div>
     </div>
-    <span className="text-sm font-bold text-grey">© 2024, Fundación Soplo de Vida</span>
+    <span className="text-sm font-bold text-grey">© {new Date().getFullYear()}, Fundación Soplo de Vida</span>
   </section>;
 };
