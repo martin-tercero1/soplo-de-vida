@@ -1,8 +1,14 @@
-import imageMaca from "../../../../public/macarena.png";
-import imageFlor from "../../../../public/flor.png";
-import imageJuli from "../../../../public/juli.png";
-import imageFran from "../../../../public/fran.png";
-import imageSabri from "../../../../public/sabri.png";
+// import imageMaca from "../../../../public/macarena.png";
+// import imageFlor from "../../../../public/flor.png";
+// import imageJuli from "../../../../public/juli.png";
+// import imageFran from "../../../../public/fran.png";
+// import imageSabri from "../../../../public/sabri.png";
+
+const imageMaca = "/home/macarena.png";
+const imageFlor = "/home/flor.png";
+const imageJuli = "/home/juli.png";
+const imageFran = "/home/fran.png";
+const imageSabri = "/home/sabri.png";
 
 //SE AGREGA EL CUSTOM BORDER SOLO A LAS FOTOS CON BORDE BLANCO
 const border = "shadow-gray-300 shadow-sm border-s-2";

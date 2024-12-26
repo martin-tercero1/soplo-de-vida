@@ -7,7 +7,7 @@ export const Pagination = ({slidesInfo, setSlide, currentSlide}) => {
   
 
   return (
-    <nav className="flex justify-around w-[60px] mb-3">
+    <nav className="hidden tablet:flex justify-around w-[60px] mb-3 tablet:absolute bottom-3">
       {slidesInfo.map((slide, index) => {
         return (<span
           key={index}
@@ -15,7 +15,7 @@ export const Pagination = ({slidesInfo, setSlide, currentSlide}) => {
               : "rgb(227 219 235 / var(--tw-bg-opacity))"
           }}
           onClick={() => goToSlide(index)}
-          className="w-[12px] h-[12px] bg-secondary border border-primary rounded-full cursor-pointer"
+          className="laptop:w-[12px] laptop:h-[12px] bg-secondary border border-primary rounded-full cursor-pointer w-[6px] h-[6px]"
         ></span>)
       })}
     </nav>
