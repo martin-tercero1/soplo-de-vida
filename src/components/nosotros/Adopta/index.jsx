@@ -1,1 +1,0 @@
-export { Adopta } from "./Adopta";

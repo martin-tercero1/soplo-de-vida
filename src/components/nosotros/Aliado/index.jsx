@@ -1,1 +1,0 @@
-export { Aliado } from "./Aliado";

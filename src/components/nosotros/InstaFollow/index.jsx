@@ -1,1 +1,0 @@
-export { InstaFollow } from "./InstaFollow";
