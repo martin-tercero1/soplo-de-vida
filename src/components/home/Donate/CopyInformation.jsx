@@ -54,7 +54,7 @@ export const CopyInformation = ({setIsCopied}) => {
             2850456230034920491001
           </span>
           <button
-            onClick={() => handleCopyClick("2590095010349204910083")}
+            onClick={() => handleCopyClick("2850456230034920491001")}
             className="ml-[8px]"
           >
             <img src="/icons/copy.svg" alt="" />
