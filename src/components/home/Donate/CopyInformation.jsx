@@ -18,7 +18,7 @@ export const CopyInformation = ({setIsCopied}) => {
   ];
 
     const bankAccountText =
-      "Nombre: CUENTAS CORRIENTES \n Banco: MACRO \n CBU: 2850456230034920491001 \n Alias: EDECAN.MENTIA.ENTERO";
+      "Nombre: CUENTAS CORRIENTES \n Banco: MACRO \n CBU: 2850456230034920491001 \n Alias: FUND.SOPLODEVIDA";
 
     const handleCopyClick = async (text) => {
       try {
@@ -63,7 +63,7 @@ export const CopyInformation = ({setIsCopied}) => {
         <p className="mx-[12px] font-normal text-base tablet:text-md leading-5 tablet:leading-8">
           Alias: <br className="tablet:hidden" />
           <span className="font-bold leading-5 text-base">
-            EDECAN.MENTIA.ENTERO
+            FUND.SOPLODEVIDA
           </span>
           <button
             onClick={() => handleCopyClick("FUND.SOPLO.DE.VIDA")}
