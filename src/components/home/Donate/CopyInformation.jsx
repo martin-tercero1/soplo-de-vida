@@ -66,7 +66,7 @@ export const CopyInformation = ({setIsCopied}) => {
             FUND.SOPLODEVIDA
           </span>
           <button
-            onClick={() => handleCopyClick("FUND.SOPLO.DE.VIDA")}
+            onClick={() => handleCopyClick("FUND.SOPLODEVIDA")}
             className="ml-[8px] "
           >
             <img src="/icons/copy.svg" alt="" />
