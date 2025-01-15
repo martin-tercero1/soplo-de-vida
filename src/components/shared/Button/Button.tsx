@@ -1,7 +1,16 @@
 "use client"
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { type MouseEventHandler, useEffect, useState } from "react";
+
+type Props = {
+  variant: string
+  size: string,
+  text: string,
+  customStyles?: string[],
+  link?: string,
+  onClick: MouseEventHandler
+}
 
 // Hook to detect device type
 const useDeviceType = () => {
@@ -35,7 +44,7 @@ export const Button = ({
   customStyles = [],
   link,
   onClick,
-}) => {
+}: Props) => {
   const deviceType = useDeviceType(); // Get the current device type
 
   // Resolve text based on the device type or use it as a string
