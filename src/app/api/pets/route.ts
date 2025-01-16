@@ -16,7 +16,7 @@ type PetsFilterProps = {
 type GetPetsResponse = {
   pets: any[];
   page: number;
-  limit: number;
+  pageSize: number;
   totalResults: number;
   petCount: number;
 };
@@ -77,7 +77,7 @@ export async function GET(req: NextRequest) {
     const result: GetPetsResponse = {
       pets,
       page,
-      limit,
+      pageSize: limit,
       totalResults,
       petCount: pets.length,
     };
