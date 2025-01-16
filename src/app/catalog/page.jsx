@@ -22,7 +22,14 @@ export default function Catalog () {
           <Image src={backIcon} alt="Volver" className="mr-[9px] " />
           Volver
         </button>
-      <h2 className='pt-2 pb-2 font-bold text-[18px]'>Nuestros soplitos</h2>
+      <h2 className='py-2 font-bold text-[18px]'>Nuestros soplitos</h2>
+      <div className="mb-[8px]">
+        <input
+        type='text'
+        placeholder='Buscar'
+        className='px-2 border border-grey rounded-[10px] w-[95%] '>
+        </input>
+      </div>
         <AnimalCards/>
       </div>
     </>
