@@ -1,84 +1,73 @@
-import { Button } from "@/components/shared/Button";
+import Image from "next/image";
+import { AboutCard } from "./AboutCard";
 
 export const About = () => {
-  return (
-      <section id="nosotros" className="p-8 bg-[#FAFAFA]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-3">
-          <div className="text-center">
-            <div className="bg-[#FADBC7] px-7 py-6 rounded-xl">
-              <img
-                className="mx-auto"
-                src="/hiking.png"
-                alt="imagen de referencia"
-              />
-            </div>
-            <h3 className="font-bold mt-2.5 text-[#404552] text-[18px]">
-              Misión
-            </h3>
-            <p className="mt-2 text-[#404552] text-base">
-              Ser el nexo entre el pasado y el futuro de perros y gatos sin
-              hogar.  Encontrar el HOGAR para todos los animales que buscan
-              crecer felices. .
-            </p>
-            <p className="mt-2 font-semibold text-[#404552]">
-              ¡Nuestros &apos;soplitos&apos; cuentan con ustedes!
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="bg-[#D6EDF0] px-7 py-6 rounded-xl">
-              <img
-                className="mx-auto"
-                src="/public.png"
-                alt="imagen de referencia"
-              />
-            </div>
-            <h3 className="font-bold mt-2.5 text-[#404552] text-[18px]">
-              Visión
-            </h3>
-            <p className="mt-2 text-[#404552] text-base">
-              Concientizar con la ACCIÓN para que todos trabajemos juntos
-              intentando un mundo más justo para los más vulnerables.
-            </p>
-            <p className="mt-2 font-semibold text-[#404552]">¡Juntos podemos más!</p>
-          </div>
-          <div className="text-center">
-            <div className="bg-[#FAF5E3] px-7 py-6 rounded-xl">
-              <img
-                className="mx-auto"
-                src="/Vector.png"
-                alt="imagen de referencia"
-              />
-            </div>
-            <h3 className="font-bold mt-2.5 text-[#404552] text-[18px]">
-              Valores
-            </h3>
-            <p className="mt-2 text-[#404552] text-base">
-              La palabra HOGAR es sinónimo de seguridad, de calma. Todos
-              merecemos un hogar para no pasar frío, hambre y miedo.
-            </p>
-            <p className="mt-2 font-semibold text-[#404552]">
-              ¡Todos los ‘soplitos’ merecen un hogar!
-            </p>
-          </div>
+  const cardsInfo = [
+    {
+      title: "Misión",
+      subTitle: " ¡Nuestros 'soplitos' cuentan con ustedes!",
+      shortDescription:
+        "Ser el puente hacia un hogar feliz para perros y gatos sin hogar.",
+      longDescription:
+        "Ser el nexo entre el pasado y el futuro de perros y gatos sin hogar. Encontrar el HOGAR para todos los animales que buscan crecer felices.",
+      imageSrc: "/home/hiking.svg",
+      bgColor: "FADBC7",
+      imageAltText: "Imagen de referencia",
+    },
+    {
+      title: "Visión",
+      subTitle: " ¡Juntos podemos más!",
+      shortDescription:
+        "Actuar juntos por un mundo más justo para los vulnerables.",
+      longDescription:
+        "Concientizar con la ACCIÓN para que todos trabajemos juntos intentando un mundo más justo para los más vulnerables.",
+      imageSrc: "/home/public.svg",
+      bgColor: "D6EDF0",
+      imageAltText: "Imagen de referencia",
+    },
+    {
+      title: "Valores",
+      subTitle: "¡Todos los ‘soplitos’ merecen un hogar!",
+      shortDescription:
+        "Todos merecemos un hogar que brinde seguridad y calma.",
+      longDescription:
+        "La palabra HOGAR es sinónimo de seguridad, de calma. Todos merecemos un hogar para no pasar frío, hambre y miedo.",
+      imageSrc: "/home/diversity.svg",
+      bgColor: "FAF5E3",
+      imageAltText: "Imagen de referencia",
+    },
+    {
+      title: "Adopciones",
+      subTitle: "¡Animate a adoptar!",
+      shortDescription:
+        "Adoptar es dar una oportunidad de amar sin condiciones.",
+      longDescription:
+        "Adoptar es dar otra oportunidad, amar incondicionalmente y crecer con otro. Por eso, es nuestro pilar e incentivamos la adopción.",
+      imageSrc: "/home/pets.svg", 
+      bgColor: "E3DBEB",
+      imageAltText: "Imagen de referencia",
+    },
+  ];
 
-          <div className="text-center">
-            <div className="bg-[#E3DBEB] px-7 py-6 rounded-xl">
-              <img
-                className="mx-auto"
-                src="/pets.png"
-                alt="imagen de referencia"
-              />
-            </div>
-            <h3 className="font-bold mt-2.5 text-[#404552] text-[18px]">
-              Adopciones
-            </h3>
-            <p className="mt-2 text-[#404552] text-base">
-              Adoptar es dar otra oportunidad, amar incondicionalmente y crecer
-              con otro. Por eso, es nuestro pilar e incentivamos la adopción.
-            </p>
-            <p className="mt-2 font-semibold text-[#404552]">¡Animate a adoptar!</p>
-          </div>
-        </div>
-      </section>
+  return (
+    <section
+      id="nosotros"
+      className="max-w-7xl mx-auto  scrolling-touch  laptop:overflow-x-hidden"
+    >
+      <div className="max-w-[1269px] bg-transparent flex flex-nowrap overflow-x-scroll px-2 py-3 gap-2 tablet:px-5 tablet:pt-5 tablet:pb-0 laptop:gap-1 laptop:px-0 laptop:py-[24px]">
+        {cardsInfo.map((card, index) => (
+          <AboutCard
+            key={index}
+            title={card.title}
+            subTitle={card.subTitle}
+            shortDescription={card.shortDescription}
+            longDescription={card.longDescription}
+            imageSrc={card.imageSrc}
+            bgColor={card.bgColor}
+            imageAltText={card.imageAltText}
+          />
+        ))}
+      </div>
+    </section>
   );
 };

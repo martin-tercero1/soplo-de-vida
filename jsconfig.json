@@ -2,8 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*", "./public/*"],
       "@/components": ["./src/components/*"],
-      "@/*": ["./src/*"]
+      "@/icons": ["./public/icons"],
     }
   }
 }
