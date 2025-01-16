@@ -1,6 +1,6 @@
 import { Nunito } from "next/font/google";
 
-import "../globals.css";
+import "./globals.css";
 
 export const metadata = {
   title: "Soplo de Vida",
