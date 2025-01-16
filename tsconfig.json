@@ -3,6 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@/components": ["./src/components/*"],
+      "@/home": ["./public/home/*"],
+      "@/icons": ["./public/icons"],
       "@/*": ["./src/*"]
     },
     "target": "ES2017",
