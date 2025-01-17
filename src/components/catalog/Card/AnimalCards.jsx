@@ -7,8 +7,8 @@ const AnimalCards = () => {
     const animals = [
             { image: 'https://placehold.co/600x400', name: 'Gato', age: 1 },
             { image: 'https://placehold.co/600x400', name: 'Perro', age: 2 },
-            { image: 'https://placehold.co/600x400', name: 'Conejo', age: 3 },
-            { image: 'https://placehold.co/600x400', name: 'Hamster', age: 1 },
+            { image: 'https://placehold.co/600x400', name: 'Gato jorge', age: 3 },
+            { image: 'https://placehold.co/600x400', name: 'Perro pepe', age: 1 },
     ];
     
   return (

@@ -26,8 +26,8 @@ export default function Catalog () {
 
   //Listado de filtros de animales (escalable :D)
   const filters = [
-    { type: 'Perro', image: '/home/slide-image-1.png' },
-    { type: 'Gato', image: '/home/voluntariados.jpg' }
+    { type: 'Gatos', image: '/filter/Gato-min.jpg' },
+    { type: 'Perros', image: '/filter/Perro-min.jpg' }
   ];
 
   return (
