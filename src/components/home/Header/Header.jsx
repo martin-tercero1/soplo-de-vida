@@ -64,7 +64,7 @@ export const Header = ({ togglePopUp }) => {
 
           {/* Desktop Logo */}
           <Image
-            src="/logoSoplo.svg" 
+            src="/LogoSoplo.svg" 
             width={57}
             height={60}
             alt="Soplo de Vida Desktop Logo"
