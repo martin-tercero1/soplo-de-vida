@@ -13,7 +13,7 @@ export const Card = ({ image, name, age, onClick }) => {
 
             <div id='content-card'>
                 <h2 className="text-sm text-violet font-sans sm:text-base md:text-lg">{name}</h2>
-                <p className="text-sm text-gray-600 sm:text-base md:text-lg">{age} años</p>
+                <p className="text-sm text-gray-600 sm:text-base md:text-lg">{age}</p>
             </div>
         </div>
     );
