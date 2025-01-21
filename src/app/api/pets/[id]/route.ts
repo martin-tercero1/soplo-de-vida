@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "../../../utils/prisma";
 import type { Pet } from "../../types";
+import { NextApiRequest } from "next";
 
 type Params = {
-  params: {
-    id: string;
-  };
+  params: { id: string };
 };
 
 type PetUpdate = {
@@ -23,15 +22,17 @@ type PetUpdate = {
   urgency?: boolean;
 };
 
-export async function GET({ params }: Params) {
+export async function GET(req: NextRequest, { params }: Params) {
   try {
-    const { id } = await params;
+    console.log(params);
+    const { id } = params;
 
     const pet: Pet | null = await prisma.pet.findUnique({
       where: {
         id: id?.toString(),
       },
     });
+    console.log(pet);
 
     if (!pet) {
       return NextResponse.json({ error: "Pet not found" }, { status: 404 });
