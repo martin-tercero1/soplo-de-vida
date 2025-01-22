@@ -13,7 +13,7 @@ import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
 import { HelpUs } from "@/components/home/HelpUs";
-
+import Requirements from "@/components/shared/Requirements/Requirements";
 export default function Home() {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
 
@@ -39,6 +39,7 @@ export default function Home() {
         <HelpUs togglePopup={togglePopUp}></HelpUs>
         <Testimonials></Testimonials>
         <Contact></Contact>
+        <Requirements/>
       </div>
       <Footer urlList={landingURLs}></Footer>
       {isPopUpVisible && <DonatePopUp togglePopUp={togglePopUp} />}
