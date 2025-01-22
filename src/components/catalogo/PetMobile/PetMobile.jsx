@@ -1,6 +1,6 @@
 "use client";
 import { HeroCarousel } from "@/components/home/HeroCarousel";
-import { Label } from "@/components/catalogo/SoplitoMobile/Label";
+import { Label } from "@/components/catalogo/PetMobile/Label";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -16,11 +16,11 @@ const petSample = {
   images: ["/pet/sample.jpeg"],
 };
 
-export function SoplitoMobile({ pet }) {
+export function PetMobile({ pet }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="h-screen w-screen relative">
+    <section className="tablet: hidden h-screen w-screen relative">
       <div
         className="h-[320px] w-full relative bg-cover bg-no-repeat bg-center "
         style={{ backgroundImage: `url(${pet.images[0]}` }}
@@ -76,6 +76,6 @@ export function SoplitoMobile({ pet }) {
       <button className="z-10 absolute bottom-0 bg-primary w-screen h-5 font-normal text-[11px] text-white leading-[16px]">
         Adoptar
       </button>
-    </div>
+    </section>
   );
 }

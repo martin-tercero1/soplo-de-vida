@@ -1,4 +1,5 @@
-import { SoplitoMobile } from "@/components/catalogo/SoplitoMobile";
+import { PetMobile } from "@/components/catalogo/PetMobile";
+import { Pet } from "@/components/catalogo/Pet";
 import { notFound } from "next/navigation";
 
 async function fetchPet(id) {
@@ -11,16 +12,17 @@ async function fetchPet(id) {
 }
 
 export default async function page({ params }) {
-  const  { id } = await params;
+  const { id } = await params;
   const res = await fetchPet(id);
   const pet = res.pet;
-  if (!res)  {
+  if (!res) {
     notFound();
   }
 
   return (
     <div>
-      <SoplitoMobile pet={pet} />
+      <PetMobile pet={pet} />
+      <Pet pet={pet}/>
     </div>
   );
 }

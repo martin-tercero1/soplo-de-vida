@@ -1,1 +1,0 @@
-export { SoplitoMobile } from "./SoplitoMobile";
