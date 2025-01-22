@@ -4,11 +4,11 @@ import { Button } from "@/components/shared/Button";
 export default function Requirements() {
   return (
     <>
-      <div className="m-8">
-        <h2 className="desktop:text-2xl text-grey font-bold mb-2">
+      <div className="desktop:m-8 mobile:m-2">
+        <h2 className="desktop:text-2xl mobile:text-xl text-grey font-bold mb-2 ">
           Requisitos de Adopción
         </h2>
-        <p className=" desktop:text-base desktop:text-grey desktop:font-normal">
+        <p className=" desktop:text-base text-grey font-normal">
           Adoptar es un acto de amor y compromiso que transforma vidas, tanto la
           de tu nuevo compañero como la tuya. Al elegir adoptar, no solo le das
           un hogar a un ser lleno de cariño, sino que también asumes la
@@ -20,21 +20,21 @@ export default function Requirements() {
           mascotas llenas de amor, listos para formar parte de tu familia.
         </p>
 
-        <div className="flex flex-row justify-center w-[100%] mt-1">
+        <div className="flex desktop:flex-row mobile:flex-col justify-center w-[100%]">
           <div className="">
-            <p className=" desktop:text-base desktop:text-grey desktop:font-normal">
+            <p className=" desktop:text-base text-grey font-normal my-1">
               En nuestro catálogo de adopción, descubrirás a mascotas llenas de
               amor, listos para formar parte de tu familia.
             </p>
             <ul className="list-disc mx-3 space-y-2">
-              <li className=" desktop:text-base desktop:text-grey desktop:font-normal">
+              <li className=" desktop:text-base text-grey font-normal">
                 <span className="font-bold text-primary">
                   Formulario de Pre-adopción:
                 </span>
                 &nbsp;El primer paso es completar un formulario, para conocerte
                 mejor y asegurarnos de que la adopción sea adecuada para ambos.
               </li>
-              <li className=" desktop:text-base desktop:text-grey desktop:font-normal">
+              <li className=" desktop:text-base text-grey font-normal">
                 <span className="font-bold text-primary">
                   Revisión y Entrevista:
                 </span>
@@ -43,7 +43,7 @@ export default function Requirements() {
                 es para resolver tus dudas y asegurarnos de que estás preparado
                 para dar a tu nuevo amigo un hogar.
               </li>
-              <li className=" desktop:text-base desktop:text-grey desktop:font-normal">
+              <li className=" desktop:text-base text-grey font-normal">
                 <span className="font-bold text-primary">
                   Compromiso de Seguimiento:
                 </span>
@@ -52,7 +52,7 @@ export default function Requirements() {
                 videos para seguir su crecimiento y asegurarnos de que está
                 bien.
               </li>
-              <li className=" desktop:text-base desktop:text-grey desktop:font-normal">
+              <li className=" desktop:text-base text-grey font-normal">
                 <span className="font-bold text-primary">
                   Actualización de Datos:
                 </span>
@@ -61,7 +61,7 @@ export default function Requirements() {
                 datos personales del adoptante, el refugio se reserva el derecho
                 de retirar al animal por su seguridad.
               </li>
-              <li className=" desktop:text-base desktop:text-grey desktop:font-normal">
+              <li className=" desktop:text-base text-grey font-normal">
                 <span className="font-bold text-primary">
                   Atenciones Médicas y Responsabilidades:
                 </span>
@@ -70,24 +70,23 @@ export default function Requirements() {
                 vez que cumpla un año.
               </li>
             </ul>
-            <p className="mt-1">
+            <p className="desktop:mt-1 mobile:my-3 desktop:text-base text-grey font-normal">
               🐾 Adoptar es un acto de amor y un compromiso de por vida. Si
               estás listo para ofrecerle un hogar lleno de cariño a tu nuevo
               compañero, ¡Hacelo hoy mismo! Adoptá ahora y empiecen esta hermosa
               historia juntos. 🐾
             </p>
           </div>
-          <div>
+          <div className="w-[500px] h-auto relative">
             <Image
               className=""
-              width={468}
-              height={483}
+              fill={true}
               src="/shared/requirements.png"
               alt="Equipo de soplo de vida"
             />
           </div>
         </div>
-        <div className="my-3">
+        <div className="my-3 flex mobile:justify-center desktop:justify-start">
           <Button
             text="Ir a Preguntas Frecuentes"
             variant="secondary"
