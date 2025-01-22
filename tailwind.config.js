@@ -25,6 +25,7 @@ module.exports = {
       sans: ["Nunito", "sans"],
     },
     spacing: {
+      0: "0px",
       1: "14px",
       2: "16px",
       2.5: "18px",
