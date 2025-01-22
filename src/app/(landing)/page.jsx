@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Header } from "@/components/home/Header";
 import { HeroCarousel } from "@/components/home/HeroCarousel";
@@ -13,12 +13,11 @@ import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
 import { HelpUs } from "@/components/home/HelpUs";
-import Requirements from "@/components/shared/Requirements/Requirements";
 export default function Home() {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
 
-    const homeClass = clsx("content-wrapper", {
-    "blurred": isPopUpVisible === true,
+  const homeClass = clsx("content-wrapper", {
+    blurred: isPopUpVisible === true,
   });
 
   const togglePopUp = () => {
@@ -27,7 +26,12 @@ export default function Home() {
 
   const mergedClass = twMerge(homeClass);
 
-  const landingURLs = [{ name: "Nosotros", href: "#nosotros" }, {name: "Testimonios", href: "#testimonios"}, {name: "Cómo ayudar", href: "#ayudar"}, {name: "Contactarme", href: "#contactar"}];
+  const landingURLs = [
+    { name: "Nosotros", href: "#nosotros" },
+    { name: "Testimonios", href: "#testimonios" },
+    { name: "Cómo ayudar", href: "#ayudar" },
+    { name: "Contactarme", href: "#contactar" },
+  ];
 
   return (
     <>
@@ -39,7 +43,6 @@ export default function Home() {
         <HelpUs togglePopup={togglePopUp}></HelpUs>
         <Testimonials></Testimonials>
         <Contact></Contact>
-        <Requirements/>
       </div>
       <Footer urlList={landingURLs}></Footer>
       {isPopUpVisible && <DonatePopUp togglePopUp={togglePopUp} />}
