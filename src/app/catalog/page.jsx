@@ -6,7 +6,7 @@ import React, {useState} from 'react'
 import Image from 'next/image';
 import backIcon from '/public/icons/back.svg';
 import FiltersSection from '@/components/catalog/Filter/FiltersSection';
-import SearchBar from '@/components/shared/Search-bar/SearchBar';
+import { SearchBar } from '@/components/shared/Search-bar';
 
 export default function Catalog () {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
