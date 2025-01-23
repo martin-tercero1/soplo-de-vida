@@ -5,9 +5,8 @@ import { Header } from "@/components/home/Header";
 import React, {useState} from 'react'
 import Image from 'next/image';
 import backIcon from '/public/icons/back.svg';
-import filterIcon from '/public/icons/filter.svg';
-import FilterCard from '@/components/catalog/Filter/FilterCard';
 import FiltersSection from '@/components/catalog/Filter/FiltersSection';
+import SearchBar from '@/components/shared/Search-bar/SearchBar';
 
 export default function Catalog () {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
@@ -41,15 +40,8 @@ export default function Catalog () {
         </button>
         <h2 className='py-2 font-bold text-[18px]'>Nuestros soplitos</h2>
 
-      {/**Search-bar*/}
-        <div className="mb-[8px]">
-          <input
-          id='search-bar'
-          type='text'
-          placeholder='Buscar'
-          className='px-2 border border-[#cecece] rounded-[10px] w-[95%] focus:border-primary'>
-          </input>
-        </div>
+        {/**Search-bar*/}
+        <SearchBar/>
 
         <FiltersSection filters={filters} onFilterClick={handleFilterClick} onClearFilters={handleClearFilters} />
         <AnimalCards/>
