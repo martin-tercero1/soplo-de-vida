@@ -13,7 +13,8 @@ const AnimalCards = () => {
 
   useEffect(() => {
     if (animals.length > 0) {
-      setDisplayedAnimals((prevAnimals) => [...prevAnimals, ...animals]);
+      const sortedAnimals = [...animals].sort((a, b) => b.urgency - a.urgency);
+      setDisplayedAnimals((prevAnimals) => [...prevAnimals, ...sortedAnimals]);
       setHasMore(animals.length === 10);
     }
   }, [animals]);
@@ -42,13 +43,35 @@ const AnimalCards = () => {
 
   const isMobileOrTablet = window.innerWidth < 1024;
 
+  const urgentAnimals = displayedAnimals.filter(animal => animal.urgency);
+  const nonUrgentAnimals = displayedAnimals.filter(animal => !animal.urgency);
+
   return (
     <div id='cards-section' className="grid grid-rows-4 gap-y-1 gap-x-2 
     mobile:grid-cols-2 
     tablet:grid-cols-3 tablet:gap-y-2 
     laptop:grid-cols-4 laptop:gap-y-4 
     desktop:grid-cols-4 desktop:gap-y-4 desktop:gap-x-3">
-      {displayedAnimals.map((animal) => (
+      {urgentAnimals.length > 0 && (
+        <div className="w-full bg-[#fadbc7] p-4 col-span-full">
+          <h2>Urgent Animals</h2>
+            <div className="grid grid-cols-1 gap-4 
+            mobile:grid-cols-2 
+            tablet:grid-cols-3 
+            laptop:grid-cols-4 
+            desktop:grid-cols-4">
+            {urgentAnimals.map((animal) => (
+                <Card
+                  key={animal.id}
+                  image={animal.images[0]}
+                  name={animal.name}
+                  age={animal.age}
+                />
+              ))}
+            </div>
+        </div>
+      )}
+      {nonUrgentAnimals.map((animal) => (
         <Card
           key={animal.id}
           image={animal.images[0]}
