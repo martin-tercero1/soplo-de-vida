@@ -3,7 +3,7 @@ import React from 'react';
 export const Card = ({ image, name, age, onClick }) => {
     return (
         <div id='animal-card'
-            className="border border-violet rounded-[10px] p-[8px] overflow-hidden cursor-pointer transition-transform transform hover:scale-105  flex flex-col gap-[8px] w-[136px] h-[151px] sm:w-[150px] sm:h-[165px] md:w-[180px] md:h-[200px]" 
+            className="bg-white border border-[#CECECE] rounded-[10px] p-[8px] overflow-hidden cursor-pointer transition-transform transform hover:scale-105  flex flex-col gap-[8px] w-[136px] h-[151px] sm:w-[150px] sm:h-[165px] md:w-[180px] md:h-[200px]" 
             onClick={onClick}
         >
             <img id='image-card' 
