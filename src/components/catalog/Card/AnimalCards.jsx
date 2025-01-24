@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import useAnimals from '@/hooks/useAnimals';
-import RenderAnimals from './RenderAnimals';
+import RenderAnimals from './RenderAnimals.jsx';
 
 const AnimalCards = () => {
   const [state, setState] = useState({
