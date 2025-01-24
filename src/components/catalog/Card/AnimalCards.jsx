@@ -53,8 +53,8 @@ const AnimalCards = () => {
     laptop:grid-cols-4 laptop:gap-y-4 
     desktop:grid-cols-4 desktop:gap-y-4 desktop:gap-x-3">
       {urgentAnimals.length > 0 && (
-        <div className="w-full bg-[#fadbc7] p-4 col-span-full">
-          <h2>Urgent Animals</h2>
+        <div className="w-full bg-[#fadbc7] py-[18px] pl-[89.5px] pr-[94.5px] col-span-full">
+          <h2 className='font-bold pl-[30px]'>Más urgentes</h2>
             <div className="grid grid-cols-1 gap-4 
             mobile:grid-cols-2 
             tablet:grid-cols-3 

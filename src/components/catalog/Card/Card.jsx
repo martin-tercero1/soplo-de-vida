@@ -12,7 +12,7 @@ export const Card = ({ image, name, age, onClick }) => {
             className="border-none rounded-lg w-[120px] h-[95px] object-cover sm:w-[140px] sm:h-[110px] md:w-[160px] md:h-[130px]" />
 
             <div id='content-card'>
-                <h2 className="text-sm text-violet font-sans sm:text-base md:text-lg">{name}</h2>
+                <h2 className="text-sm text-primary font-sans sm:text-base md:text-lg">{name}</h2>
                 <p className="text-sm text-gray-600 sm:text-base md:text-lg">{age}</p>
             </div>
         </div>
