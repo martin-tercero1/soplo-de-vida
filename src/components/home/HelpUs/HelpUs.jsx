@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"; // Import useState and useEffect hooks
 import { HelpUsCards } from "./HelpUsCards";
-import image1 from "@/home/help-us-1.png";
-import image2 from "@/home/help-us-2.png";
-import image3 from "@/home/help-us-3.png";
-import image4 from "@/home/help-us-4.png";
+import image1 from "../../../../public/home/help-us-1.png";
+import image2 from "../../../../public/home/help-us-2.png";
+import image3 from "../../../../public/home/help-us-3.png";
+import image4 from "../../../../public/home/help-us-4.png";
 
 export const HelpUs = ({ togglePopup }) => {
   const [isLargeDevice, setIsLargeDevice] = useState(false); // State to manage client-side media query result

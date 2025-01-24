@@ -7,7 +7,7 @@ export const metadata = {
   description: "Refugio de perritos",
 };
 
-const nunito = Nunito({subsets: ['latin']});
+const nunito = Nunito({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
   return (
