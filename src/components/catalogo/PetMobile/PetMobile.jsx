@@ -18,34 +18,46 @@ const petSample = {
 
 export function PetMobile({ pet }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <section className="tablet: hidden h-screen w-screen relative">
+    <section className="tablet:hidden h-screen w-screen relative">
       <div
         className="h-[320px] w-full relative bg-cover bg-no-repeat bg-center "
-        style={{ backgroundImage: `url(${pet.images[0]}` }}
+        style={{ backgroundImage: `url(${petSample.images[0]}` }}
       >
         <div className="z-20 w-full h-full bg-gradient-to-br from-[#cccdd3b3] via-transparent to-transparent"></div>
       </div>
       <motion.div
-        className="bg-white rounded-[24px] z-10 absolute bottom-0 w-full"
-        animate={{ height: isExpanded ? "95%" : "67%" }}
+        className={`${
+          isCollapsed ? "bg-secondary" : "bg-white"
+        } rounded-[24px] z-10 absolute bottom-0 w-full`}
+        animate={{ height: isExpanded ? "90%" : isCollapsed ? "100px" : "67%" }}
         initial={{ height: "50%" }}
         transition={{ duration: 0.3 }}
         drag="y"
         dragConstraints={{ top: 0, bottom: 0 }}
         dragElastic={0.2}
         onDragEnd={(e, info) => {
+          console.log(info.offset.y);
           if (info.offset.y < -50) {
             setIsExpanded(true);
           } else if (info.offset.y > 50) {
-            setIsExpanded(false);
+            if (info.offset.y > 80) {
+              setIsCollapsed(true);
+            } else {
+              setIsExpanded(false);
+            }
           }
         }}
       >
-        <div className="h-full p-2 flex flex-col gap-2 items-center bg-none">
+        <div className="h-full p-[16px] flex flex-col gap-[16px] items-center bg-none">
           <div className="bg-grey w-[80px] h-[4px] rounded-[4px]"></div>
-          <div className="w-full flex justify-between items-center">
+          <div
+            className={`${
+              isCollapsed ? "hidden" : ""
+            } w-full flex justify-between items-center`}
+          >
             <p className="text-black text-[35px] font-bold leading-[42px]">
               {petSample.name}
             </p>
@@ -56,13 +68,17 @@ export function PetMobile({ pet }) {
               src="/icons/share.svg"
             />
           </div>
-          <div className="flex flex-wrap gap-[4px]">
+          <div
+            className={`${
+              isCollapsed ? "hidden" : ""
+            } flex flex-wrap gap-[4px]`}
+          >
             <Label text={petSample.gender} />
             <Label text={petSample.gender} />
             <Label text={petSample.personality} />
             <Label text={petSample.health_condition} />
           </div>
-          <div className="overflow-y-scroll">
+          <div className={`${isCollapsed ? "hidden" : ""} overflow-y-scroll`}>
             <p className="text-black text-[18px] font-bold leading-[25px]">
               Su historia
             </p>
@@ -73,7 +89,7 @@ export function PetMobile({ pet }) {
         </div>
       </motion.div>
 
-      <button className="z-10 absolute bottom-0 bg-primary w-screen h-5 font-normal text-[11px] text-white leading-[16px]">
+      <button className="z-20 absolute bottom-0 bg-primary w-screen h-5 font-normal text-[11px] text-white leading-[16px]">
         Adoptar
       </button>
     </section>

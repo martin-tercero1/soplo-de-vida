@@ -1,15 +1,34 @@
+"use client";
+
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager } from "@next/third-parties/google";
+import { usePathname } from "next/navigation";
 
-export const metadata = {
+const metadata = {
   title: "Soplo de Vida",
   description: "Refugio de perritos",
 };
+import { Footer } from "@/components/home/Footer";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
+const homeURLs = [
+  { name: "Home", href: "/" },
+  { name: "Nosotros", href: "/nosotros" },
+];
+
+const landingURLs = [
+  { name: "Nosotros", href: "#nosotros" },
+  { name: "Testimonios", href: "#testimonios" },
+  { name: "Cómo ayudar", href: "#ayudar" },
+  { name: "Contactarme", href: "#contactar" },
+];
+
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+  const isLanding = pathname === "/landing";
+
   return (
     <html lang="es">
       <head>
@@ -29,7 +48,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${nunito.className} antialiased `}>
         {children}
-        
+        <Footer urlList={isLanding ? landingURLs : homeURLs} />
       </body>
       <GoogleTagManager gtmId="GTM-TPJ6N9FS" />
     </html>

@@ -1,5 +1,7 @@
 import { PetMobile } from "@/components/catalogo/PetMobile";
 import { Pet } from "@/components/catalogo/Pet";
+import { Aliado } from "@/components/nosotros/Aliado";
+import { Requirements } from "@/components/shared/Requirements";
 import { notFound } from "next/navigation";
 
 async function fetchPet(id) {
@@ -21,8 +23,12 @@ export default async function page({ params }) {
 
   return (
     <div>
-      <PetMobile pet={pet} />
-      <Pet pet={pet}/>
+      <div className="w-screen tablet:px-[40px] laptop:px-[89px]">
+        <PetMobile />
+        <Pet pet={pet} />
+        <Aliado/>
+        <Requirements />
+      </div>
     </div>
   );
 }

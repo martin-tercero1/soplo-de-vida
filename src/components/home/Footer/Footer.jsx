@@ -1,9 +1,13 @@
 "use client";
 import { useState, useEffect } from "react"; // Import useState and useEffect hooks
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/shared/Button";
 import Image from "next/image";
 
-export const Footer = ({urlList}) => {
+export const Footer = ({ urlList }) => {
+  const pathname = usePathname();
+  const isCatalog = pathname.startsWith("/catalogo");
+
   const [isSmallDevice, setIsSmallDevice] = useState(false); // State to track small device
   const [isDesktop, setIsDesktop] = useState(false); // State to track desktop size
 
@@ -26,7 +30,7 @@ export const Footer = ({urlList}) => {
   }, []); // Empty dependency array to only run this effect on mount
 
   return (
-    <footer className="w-full bg-grey desktop:bg-secondary flex flex-col justify-evenly p-4 gap-5 items-start desktop:items-center">
+    <footer className={`${isCatalog ? "hidden": ""} w-full bg-grey desktop:bg-secondary flex flex-col justify-evenly p-4 gap-5 items-start desktop:items-center`}>
       <div className="w-full flex flex-col tablet:flex-row justify-between items-center gap-1 tablet:items-start">
         <div className="flex tablet:flex-row flex-row-reverse w-[100%] tablet:w-auto desktop:w-2/6 justify-between desktop:justify-center gap-5">
           {isSmallDevice ? (
@@ -114,7 +118,9 @@ export const Footer = ({urlList}) => {
           </div>
         </div>
       </div>
-      <span className="text-sm font-bold text-grey">© {new Date().getFullYear()}, Fundación Soplo de Vida</span>
+      <span className="text-sm font-bold text-grey">
+        © {new Date().getFullYear()}, Fundación Soplo de Vida
+      </span>
     </footer>
   );
 };

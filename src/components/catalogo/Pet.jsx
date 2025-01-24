@@ -1,9 +1,8 @@
 import { Label } from "@/components/catalogo/PetMobile/Label";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { useState } from "react";
 import { ShareIcon } from "@/components/catalogo/ShareIcon";
-import Link from "next/link";
+import { SmallPic } from "@/components/catalogo/SmallPic";
 
 const petSample = {
   name: "Chupetín",
@@ -13,28 +12,63 @@ const petSample = {
   gender: "Macho",
   personality: "Muy juguetón",
   health_condition: "Buen estado",
-  images: ["/pet/sample.jpeg"],
+  images: ["", "/pet/sample.jpeg", "", ""],
 };
 
 export function Pet({ pet }) {
   return (
-    <section className="w-screen ">
-      <div className="mx-[40px] mb-4 flex items-center justify-between">
-        <div className="flex gap-3-">
-          {/* <Image/> */}
+    <section className="hidden tablet:block">
+      <div className="mb-4 flex items-center justify-between">
+        <div className="flex gap-[24px] items-center">
+          <div className="w-[80px] h-[80px] relative">
+            {petSample.images[0] ? (
+              <Image
+                src={petSample.images[0]}
+                className="rounded-[8px]"
+                fill
+                alt="Imagen de mascota"
+              />
+            ) : (
+              <Image
+                src="/shared/mascota.png"
+                width={80}
+                height={80}
+                className="rounded-[8px]"
+                alt="Logo de mascota"
+              />
+            )}
+          </div>
+
           <h2 className="font-bold leading-[65px] text-2xl text-grey/90">
             {pet.name}
           </h2>
         </div>
-        <Link className="flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <ShareIcon
             strokeColor="currentColor"
             className="w-5 h-5 text-primary"
           />
-          <span className="font-medium text-base leading-[21px] text-grey">Compartir</span>
-        </Link>
+          <span className="font-medium text-base leading-[21px] text-grey">
+            Compartir
+          </span>
+        </div>
       </div>
-      <article className="my-4 mx-[40px] text-pr">
+      <div className="flex flex-col gap-[16px] desktop:flex-row">
+        <div className="w-[320px] h-[396px] relative desktop:w-[525px] desktop:h-[495px]">
+          <Image
+            src={petSample.images[1]}
+            className="rounded-[5px]"
+            fill
+            alt="Mascota foto"
+          />
+        </div>
+        <div className="flex dekstop:flex-col gap-[14px]">
+          <SmallPic image={petSample.images[2]} />
+          <SmallPic image={petSample.images[3]} />
+          <SmallPic image={petSample.images[4]} />
+        </div>
+      </div>
+      <article className="my-4">
         <h3 className="font-bold leading-[42px] text-xl text-grey">
           Su historia
         </h3>

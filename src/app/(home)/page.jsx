@@ -3,16 +3,16 @@
 import { Header } from "@/components/home/Header";
 import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { About } from "@/components/home/About";
-import { Donate } from "@/components/home/Donate";
-import { Testimonials } from "@/components/home/Testimonials";
-import { Contact } from "@/components/home/Contact";
 import { DonatePopUp } from "@/components/home/Donate/DonatePopUp";
-import { Footer } from "@/components/home/Footer";
+import { Banner } from "@/components/nosotros/Banner";
+import { InstaFollow } from "@/components/nosotros/InstaFollow";
+import { Adopta } from "@/components/nosotros/Adopta";
+import { Aliado } from "@/components/nosotros/Aliado";
 
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
-import { HelpUs } from "@/components/home/HelpUs";
+
 export default function Home() {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
 
@@ -26,25 +26,28 @@ export default function Home() {
 
   const mergedClass = twMerge(homeClass);
 
-  const landingURLs = [
-    { name: "Nosotros", href: "#nosotros" },
-    { name: "Testimonios", href: "#testimonios" },
-    { name: "Cómo ayudar", href: "#ayudar" },
-    { name: "Contactarme", href: "#contactar" },
-  ];
-
   return (
     <>
       <div className={mergedClass}>
         <Header togglePopUp={togglePopUp}></Header>
         <HeroCarousel togglePopUp={togglePopUp}></HeroCarousel>
-        <About></About>
-        <Donate togglePopUp={togglePopUp}></Donate>
-        <HelpUs togglePopup={togglePopUp}></HelpUs>
-        <Testimonials></Testimonials>
-        <Contact></Contact>
+        <About />
+        <Banner
+          title="Actividades"
+          description="En Soplo de Vida realizamos eventos y actividades como capacitaciones para voluntarios, educación canina, campañas de castraciones, etc."
+          imgSrc="/home/evento-adopcion.webp"
+          imgAlt="Evento benefico de soplo de vida"
+        />
+        <InstaFollow />
+        <Banner
+          title="Novedades"
+          description="Encontrá aquí las novedades sobre campañas, adopciones y acciones de Soplo de Vida. "
+          imgSrc="/home/voluntarios.webp" 
+          imgAlt="Equipo de soplo de vida"
+        />
+        <Adopta />
+        <Aliado />
       </div>
-      <Footer urlList={landingURLs}></Footer>
       {isPopUpVisible && <DonatePopUp togglePopUp={togglePopUp} />}
     </>
   );
