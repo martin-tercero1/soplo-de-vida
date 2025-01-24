@@ -8,7 +8,8 @@ export const Card = ({ image, name, age, onClick }) => {
         >
             <img id='image-card' 
             src={image} 
-            alt={`${name}`} 
+            alt={`${name}`}
+            loading="lazy"  
             className="border-none rounded-lg w-[120px] h-[95px] object-cover sm:w-[140px] sm:h-[110px] md:w-[160px] md:h-[130px]" />
 
             <div id='content-card'>
