@@ -13,7 +13,7 @@ const useAnimals = () => {
           throw new Error('Error en la conexion a la API de mascotas');
         }
         const data = await response.json();
-        setAnimals(data.pets);
+        setAnimals(data.data.pets);
       } catch (error) {
         setError(error);
       } finally {

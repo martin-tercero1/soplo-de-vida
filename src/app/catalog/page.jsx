@@ -7,6 +7,7 @@ import Image from 'next/image';
 import backIcon from '/public/icons/back.svg';
 import FiltersSection from '@/components/catalog/Filter/FiltersSection';
 import  SearchBar  from '@/components/shared/Search-bar/SearchBar';
+import Requirements from '@/components/shared/Requirements/Requirements';
 
 export default function Catalog () {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
@@ -45,6 +46,8 @@ export default function Catalog () {
 
         <FiltersSection filters={filters} onFilterClick={handleFilterClick} onClearFilters={handleClearFilters} />
         <AnimalCards/>
+
+        <Requirements/>
       </div>
     </>
   )
