@@ -1,58 +1,98 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "../../../utils/prisma";
-;
+import type { Pet } from "../../types";
+import { NextApiRequest } from "next";
 
-export async function GET(req: NextRequest, { params }: any) {
-    const { id } = await params;
+type Params = {
+  params: { id: string };
+};
 
-    const pet = await prisma.pet.findUnique({
-        where: {
-            id: id?.toString(),
-        },
-    })
+type PetUpdate = {
+  name?: string;
+  type?: string;
+  age?: string;
+  gender?: string;
+  personality?: string;
+  size?: string;
+  description?: string;
+  health_condition?: string;
+  castrated?: boolean;
+  dewormed?: boolean;
+  images?: string[];
+  urgency?: boolean;
+};
+
+export async function GET(req: NextRequest, { params }: Params) {
+  try {
+    console.log(params);
+    const { id } = params;
+
+    const pet: Pet | null = await prisma.pet.findUnique({
+      where: {
+        id: id?.toString(),
+      },
+    });
+    console.log(pet);
+
+    if (!pet) {
+      return NextResponse.json({ error: "Pet not found" }, { status: 404 });
+    }
+
     return NextResponse.json({
-        pet
-    })
+      data: pet,
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "An error occurred while fetching the pet" },
+      { status: 500 }
+    );
+  }
 }
 
-export async function PATCH(req: NextRequest, { params }: any) {
+export async function PATCH(req: NextRequest, { params }: Params) {
+  try {
     const { id } = await params;
-    console.log(params)
-    const { name, type, age, gender, personality, size, description, health_condition, castrated, dewormed, images } = await req.json();
 
-    const pet = await prisma.pet.update({
-        where: {
-            id: id,
-        },
-        data: {
-            name,
-            type,
-            age,
-            gender,
-            personality,
-            size,
-            description,
-            health_condition,
-            castrated,
-            dewormed,
-            images
-        }
-    })
+    const {
+      name,
+      type,
+      age,
+      gender,
+      personality,
+      size,
+      description,
+      health_condition,
+      castrated,
+      dewormed,
+      images,
+    } = (await req.json()) as PetUpdate;
+
+    const pet: Pet = await prisma.pet.update({
+      where: {
+        id: id,
+      },
+      data: {
+        name,
+        type,
+        age,
+        gender,
+        personality,
+        size,
+        description,
+        health_condition,
+        castrated,
+        dewormed,
+        images,
+      },
+    });
 
     return NextResponse.json({
-        pet
-    })
-}
-
-export async function DELETE(req: NextRequest) {
-    const id = req.nextUrl.searchParams.get('id') as string;
-
-    await prisma.pet.delete({
-        where: {
-            id: id,
-        },
-    })
-    return NextResponse.json({
-        data: `Pet with id: ${id} has been deleted`
-    })
+      data: pet,
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "An error occurred while updating the pet" },
+      { status: 500 }
+    );
+  }
 }
