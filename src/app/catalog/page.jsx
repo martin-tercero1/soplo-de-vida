@@ -7,6 +7,7 @@ import Image from 'next/image';
 import backIcon from '/public/icons/back.svg';
 import FiltersSection from '@/components/catalog/Filter/FiltersSection';
 import  SearchBar  from '@/components/shared/Search-bar/SearchBar';
+import Requirements from '@/components/shared/Requirements/Requirements';
 
 export default function Catalog () {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
@@ -33,18 +34,22 @@ export default function Catalog () {
     <>
       <Header togglePopUp={togglePopUp} />
 
-      <div className='p-2 font-sans'>
-        <button id='back-button' className="flex sm:hidden ">
-          <Image src={backIcon} alt="Volver" className="mr-[9px] " />
-          Volver
-        </button>
-        <h2 className='py-2 font-bold text-[18px]'>Nuestros soplitos</h2>
+      <div className='font-sans'>
+        <div className='p-2'>
+          <button id='back-button' className="flex sm:hidden ">
+            <Image src={backIcon} alt="Volver" className="mr-[9px] " />
+            Volver
+          </button>
+          <h2 className='py-2 font-bold text-[18px]'>Nuestros soplitos</h2>
 
-        {/**Search-bar*/}
-        <SearchBar/>
+          {/**Search-bar*/}
+          <SearchBar/>
 
-        <FiltersSection filters={filters} onFilterClick={handleFilterClick} onClearFilters={handleClearFilters} />
+          <FiltersSection filters={filters} onFilterClick={handleFilterClick} onClearFilters={handleClearFilters} />
+        </div>
         <AnimalCards/>
+
+        <Requirements/>
       </div>
     </>
   )

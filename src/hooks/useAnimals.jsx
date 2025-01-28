@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useAnimals = () => {
+const useAnimals = (limit = 10, page = 1) => {
   const [animals, setAnimals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -8,12 +8,12 @@ const useAnimals = () => {
   useEffect(() => {
     const fetchAnimals = async () => {
       try {
-        const response = await fetch('/api/pets');
+        const response = await fetch(`/api/pets?limit=${limit}&page=${page}`);
         if (!response.ok) {
           throw new Error('Error en la conexion a la API de mascotas');
         }
         const data = await response.json();
-        setAnimals(data.pets);
+        setAnimals(data.data.pets);
       } catch (error) {
         setError(error);
       } finally {
@@ -22,7 +22,7 @@ const useAnimals = () => {
     };
 
     fetchAnimals();
-  }, []);
+  }, [limit, page]);
 
   return { animals, loading, error };
 };
