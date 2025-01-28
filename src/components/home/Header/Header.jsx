@@ -2,6 +2,8 @@
 import { Antonio } from "next/font/google";
 import { Button } from "@/components/shared/Button";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
 import Image from "next/image";
 const antonio = Antonio({ subsets: ["latin"] });
 
@@ -42,9 +44,10 @@ export const Header = ({ togglePopUp }) => {
     }
 
   return (
-      <header className={mergedClass}>
-        <div className="flex justify-center items-center">
-          {/* Mobile Logo */}
+    <header className={mergedClass}>
+      <div className="flex justify-center items-center">
+        {/* Mobile Logo */}
+        <Link href="/">
           <Image
             src="/logo_mobile_tablet.png"
             width={34}
@@ -52,8 +55,10 @@ export const Header = ({ togglePopUp }) => {
             alt="Soplo de Vida Mobile Logo"
             className="block tablet:hidden w-[34px] h-[32px]"
           />
+        </Link>
 
-          {/* Tablet Logo */}
+        {/* Tablet Logo */}
+        <Link href="/">
           <Image
             src="/logo_mobile_tablet.png"
             width={34}
@@ -61,139 +66,143 @@ export const Header = ({ togglePopUp }) => {
             alt="Soplo de Vida Tablet Logo"
             className="hidden tablet:block laptop:hidden"
           />
+        </Link>
 
-          {/* Desktop Logo */}
+        {/* Desktop Logo */}
+        <Link href="/">
           <Image
-            src="/logoSoplo.svg" 
+            src="/logoSoplo.svg"
             width={57}
             height={60}
             alt="Soplo de Vida Desktop Logo"
             className="hidden laptop:block"
           />
-          <span
-            className={`${antonio.className} ml-3 text-violet font-normal text-base hidden laptop:block`}
-          >
-            Soplo de vida
-          </span>
-        </div>
+        </Link>
 
-        <div className="flex items-center">
-          <nav>
-            <section className="MOBILE-MENU flex lg:hidden">
+        <span
+          className={`${antonio.className} ml-3 text-violet font-normal text-base hidden laptop:block`}
+        >
+          Soplo de vida
+        </span>
+      </div>
+
+      <div className="flex items-center">
+        <nav>
+          <section className="MOBILE-MENU flex lg:hidden">
+            <div
+              className="HAMBURGER-ICON space-y-2"
+              onClick={() => setIsNavOpen((prev) => !prev)}
+            >
+              <Image
+                src="/icons/burger_menu.svg"
+                width={25}
+                height={24}
+                alt="burger_menu"
+              />
+            </div>
+            <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
               <div
-                className="HAMBURGER-ICON space-y-2"
-                onClick={() => setIsNavOpen((prev) => !prev)}
+                className="self-end mr-3 mt-3"
+                onClick={() => setIsNavOpen(false)}
               >
-                <Image
-                  src="/icons/burger_menu.svg"
-                  width={25}
-                  height={24}
-                  alt="burger_menu"
-                />
+                <img src="/icons/xicon.svg" className="w-3" />
               </div>
-              <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
-                <div
-                  className="self-end mr-3 mt-3"
+              <ul className=" flex basis-4/6 flex-col items-center justify-between min-h-[250px] w-[90%] py-1">
+                <li
+                  className="bg-secondary w-full text-center p-3 rounded-md"
                   onClick={() => setIsNavOpen(false)}
                 >
-                  <img src="/icons/xicon.svg" className="w-3" />
-                </div>
-                <ul className=" flex basis-4/6 flex-col items-center justify-between min-h-[250px] w-[90%] py-1">
-                  <li
-                    className="bg-secondary w-full text-center p-3 rounded-md"
-                    onClick={() => setIsNavOpen(false)}
+                  <a
+                    className="font-medium leading-5 text-base hover:font-bold text-black block"
+                    href="#inicio"
                   >
-                    <a
-                      className="font-medium leading-5 text-base hover:font-bold text-black block"
-                      href="#inicio"
-                    >
-                      Inicio
-                    </a>
-                  </li>
-                  <li onClick={() => setIsNavOpen(false)}>
-                    <a
-                      className="font-medium leading-5 text-base hover:font-bold text-black"
-                      href="#nosotros"
-                    >
-                      Nosotros
-                    </a>
-                  </li>
-                  <li onClick={() => setIsNavOpen(false)}>
-                    <a
-                      className="font-medium leading-5 text-base hover:font-bold text-black"
-                      href="#testimonios"
-                    >
-                      Testimonios
-                    </a>
-                  </li>
-                  <li onClick={() => setIsNavOpen(false)}>
-                    <a
-                      className="font-medium leading-5 text-base hover:font-bold text-black"
-                      href="#ayudar"
-                    >
-                      Cómo Ayudar
-                    </a>
-                  </li>
-                  <li onClick={() => setIsNavOpen(false)}>
-                    <a
-                      className="font-medium leading-5 text-base hover:font-bold text-black"
-                      href="#contactar"
-                    >
-                      Contactarme
-                    </a>
-                  </li>
-                  <Button
-                    size="medium"
-                    variant="primary"
-                    text="Donar"
-                    customStyles={["w-full", ""]}
-                    onClick={donateClick}
-                  ></Button>
-                </ul>
-              </div>
-            </section>
-            <ul className="laptop:flex items-center gap-3 DESKTOP-MENU hidden space-x-1">
-              <li>
-                <a
-                  className="font-normal leading-5 text-base hover:font-bold text-grey"
-                  href="#nosotros"
-                >
-                  Nosotros
-                </a>
-              </li>
-              <li>
-                <a
-                  className="font-normal leading-5 text-base hover:font-bold text-grey"
-                  href="#testimonios"
-                >
-                  Testimonios
-                </a>
-              </li>
-              <li>
-                <a
-                  className="font-normal leading-5 text-base hover:font-bold text-grey"
-                  href="#ayudar"
-                >
-                  Cómo Ayudar
-                </a>
-              </li>
-              <li>
-                <a
-                  className="font-normal leading-5 text-base hover:font-bold text-grey"
-                  href="#contactar"
-                >
-                  Contactarme
-                </a>
-              </li>
-              <Button
-                size="medium"
-                variant="primary"
-                text="Donar"
-                onClick={togglePopUp}
-              ></Button>
-            </ul>
-          </nav>
-        </div>
-      </header>
+                    Inicio
+                  </a>
+                </li>
+                <li onClick={() => setIsNavOpen(false)}>
+                  <a
+                    className="font-medium leading-5 text-base hover:font-bold text-black"
+                    href="#nosotros"
+                  >
+                    Nosotros
+                  </a>
+                </li>
+                <li onClick={() => setIsNavOpen(false)}>
+                  <a
+                    className="font-medium leading-5 text-base hover:font-bold text-black"
+                    href="#testimonios"
+                  >
+                    Testimonios
+                  </a>
+                </li>
+                <li onClick={() => setIsNavOpen(false)}>
+                  <a
+                    className="font-medium leading-5 text-base hover:font-bold text-black"
+                    href="#ayudar"
+                  >
+                    Cómo Ayudar
+                  </a>
+                </li>
+                <li onClick={() => setIsNavOpen(false)}>
+                  <a
+                    className="font-medium leading-5 text-base hover:font-bold text-black"
+                    href="#contactar"
+                  >
+                    Contactarme
+                  </a>
+                </li>
+                <Button
+                  size="medium"
+                  variant="primary"
+                  text="Donar"
+                  customStyles={["w-full", ""]}
+                  onClick={donateClick}
+                ></Button>
+              </ul>
+            </div>
+          </section>
+          <ul className="laptop:flex items-center gap-3 DESKTOP-MENU hidden space-x-1">
+            <li>
+              <a
+                className="font-normal leading-5 text-base hover:font-bold text-grey"
+                href="#nosotros"
+              >
+                Nosotros
+              </a>
+            </li>
+            <li>
+              <a
+                className="font-normal leading-5 text-base hover:font-bold text-grey"
+                href="#testimonios"
+              >
+                Testimonios
+              </a>
+            </li>
+            <li>
+              <a
+                className="font-normal leading-5 text-base hover:font-bold text-grey"
+                href="#ayudar"
+              >
+                Cómo Ayudar
+              </a>
+            </li>
+            <li>
+              <a
+                className="font-normal leading-5 text-base hover:font-bold text-grey"
+                href="#contactar"
+              >
+                Contactarme
+              </a>
+            </li>
+            <Button
+              size="medium"
+              variant="primary"
+              text="Donar"
+              onClick={togglePopUp}
+            ></Button>
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 };

@@ -7,14 +7,10 @@ import Image from 'next/image';
 import backIcon from '/public/icons/back.svg';
 import FiltersSection from '@/components/catalog/Filter/FiltersSection';
 import  SearchBar  from '@/components/shared/Search-bar/SearchBar';
-import Requirements from '@/components/shared/Requirements/Requirements';
+import { Requirements } from "@/components/shared/Requirements";
 
 export default function Catalog () {
-  const [isPopUpVisible, setIsPopUpVisible] = useState(false);
 
-  const togglePopUp = () => {
-    setIsPopUpVisible((prevValue) => !prevValue);
-  };
 
   const handleFilterClick = (filter) => {
     setSelectedFilter(filter);
@@ -32,9 +28,7 @@ export default function Catalog () {
 
   return (
     <>
-      <Header togglePopUp={togglePopUp} />
-
-      <div className='font-sans'>
+      <section className='font-sans'>
         <div className='p-2'>
           <button id='back-button' className="flex sm:hidden ">
             <Image src={backIcon} alt="Volver" className="mr-[9px] " />
@@ -50,7 +44,7 @@ export default function Catalog () {
         <AnimalCards/>
 
         <Requirements/>
-      </div>
+      </section>
     </>
   )
 }

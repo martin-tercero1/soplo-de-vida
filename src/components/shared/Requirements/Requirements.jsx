@@ -3,7 +3,7 @@ import { Button } from "@/components/shared/Button";
 
 export function Requirements() {
   return (
-    <section className="hidden tablet:block tablet:my-4 laptop:my-3">
+    <section className="hidden tablet:block tablet:my-4 tablet:mx-[40px] laptop:mx-[89px] laptop:my-3">
       <h2 className="laptop:text-2xl text-[35px] text-grey font-bold mb-3 leading-[42px]">
         Requisitos de adopción
       </h2>
@@ -23,7 +23,7 @@ export function Requirements() {
         listos para formar parte de tu familia.
       </p>
 
-      <div className="flex flex-col justify-center w-[100%] laptop:flex-row">
+      <div className="flex flex-col justify-center w-[100%] tablet:items-center laptop:flex-row">
         <div className="laptop:max-w-[780px]">
           <ul className="list-disc mx-3 space-y-2">
             <li className=" laptop:text-base text-grey font-normal text-sm leading-[21px]">
@@ -75,12 +75,11 @@ export function Requirements() {
             juntos. 🐾
           </p>
         </div>
-        <div className="tablet:w-[237px] laptop:w-[402px] h-auto relative">
+        <div className="relative w-[237px] h-[385px] laptop:w-[468px] laptop:h-[483px]">
           <Image
-            className=""
-            fill={true}
             src="/shared/requirements.png"
-            alt="Equipo de soplo de vida"
+            alt="Ilustracion de abrazo a mascota"
+            fill
           />
         </div>
       </div>

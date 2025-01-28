@@ -15,6 +15,7 @@ const nunito = Nunito({ subsets: ["latin"] });
 
 const homeURLs = [
   { name: "Home", href: "/" },
+  {name: "Catalogo", href: "/catalogo"},
   { name: "Nosotros", href: "/nosotros" },
 ];
 

@@ -7,7 +7,6 @@ import { Donate } from "@/components/home/Donate";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Contact } from "@/components/home/Contact";
 import { DonatePopUp } from "@/components/home/Donate/DonatePopUp";
-import { Footer } from "@/components/home/Footer";
 
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";

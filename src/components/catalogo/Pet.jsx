@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { ShareIcon } from "@/components/catalogo/ShareIcon";
 import { SmallPic } from "@/components/catalogo/SmallPic";
+import { Button } from "@/components/shared/Button";
 
 const petSample = {
   name: "Chupetín",
@@ -17,7 +18,8 @@ const petSample = {
 
 export function Pet({ pet }) {
   return (
-    <section className="hidden tablet:block">
+    <section className="hidden w-full tablet:block">
+      {/* Name section */}
       <div className="mb-4 flex items-center justify-between">
         <div className="flex gap-[24px] items-center">
           <div className="w-[80px] h-[80px] relative">
@@ -40,12 +42,12 @@ export function Pet({ pet }) {
           </div>
 
           <h2 className="font-bold leading-[65px] text-2xl text-grey/90">
-            {pet.name}
+            {petSample.name}
           </h2>
         </div>
         <div className="flex flex-col items-center">
           <ShareIcon
-            strokeColor="currentColor"
+            strokecolor="currentColor"
             className="w-5 h-5 text-primary"
           />
           <span className="font-medium text-base leading-[21px] text-grey">
@@ -53,27 +55,80 @@ export function Pet({ pet }) {
           </span>
         </div>
       </div>
-      <div className="flex flex-col gap-[16px] desktop:flex-row">
-        <div className="w-[320px] h-[396px] relative desktop:w-[525px] desktop:h-[495px]">
-          <Image
-            src={petSample.images[1]}
-            className="rounded-[5px]"
-            fill
-            alt="Mascota foto"
+
+      {/* Labels section */}
+      <div className="w-full flex gap-[24px]">
+        <div className="flex flex-col gap-[16px] laptop:flex-row-reverse">
+          <div className="w-[320px] h-[396px] relative laptop:w-[525px] laptop:h-[495px]">
+            <Image
+              src={petSample.images[1]}
+              className="rounded-[5px]"
+              fill
+              alt="Mascota foto"
+            />
+          </div>
+          <div className="flex laptop:flex-col gap-[14px]">
+            <SmallPic image={petSample.images[2]} />
+            <SmallPic image={petSample.images[3]} />
+            <SmallPic image={petSample.images[4]} />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-[24px]">
+          <h4 className="font-bold text-[35px] leading-[42px] text-grey">
+            Datos importantes
+          </h4>
+          <div className="flex flex-col gap-[16px] justify-between">
+            <div className="w-full flex">
+              <div className="flex items-center text-grey font-bold text-[28px] leading-[34px] w-[136px]">
+                Sexo
+              </div>
+              <Label text="Macho" />
+            </div>
+
+            <div className="w-full flex">
+              <div className="flex items-center text-grey font-bold text-[28px] leading-[34px] w-[136px]">
+                Tamaño
+              </div>
+              <Label text="Tamaño" />
+            </div>
+
+            <div className="w-full flex">
+              <div className="flex items-center text-grey font-bold text-[28px] leading-[34px] w-[136px]">
+                Edad
+              </div>
+              <Label text="5 Meses" />
+            </div>
+
+            <div className="w-full flex">
+              <div className="flex items-center text-grey font-bold text-[28px] leading-[34px] w-[136px]">
+                Salud
+              </div>
+              <Label text="Desparasitado" />
+            </div>
+            <div className="flex-col items-center text-grey font-bold text-[28px] leading-[34px]">
+              Carácter
+              <p className="text-grey text-[22px] font-semibold leading-[28px]">
+                {petSample.personality}
+              </p>
+            </div>
+          </div>
+
+          <Button
+            variant="primary"
+            text="Adoptar"
+            size="large"
+            customStyles={["w-full"]}
           />
         </div>
-        <div className="flex dekstop:flex-col gap-[14px]">
-          <SmallPic image={petSample.images[2]} />
-          <SmallPic image={petSample.images[3]} />
-          <SmallPic image={petSample.images[4]} />
-        </div>
       </div>
+
       <article className="my-4">
         <h3 className="font-bold leading-[42px] text-xl text-grey">
           Su historia
         </h3>
         <p className="font-normal leading-[21px] text-sm text-grey">
-          {pet.description}
+          {petSample.description}
         </p>
       </article>
     </section>

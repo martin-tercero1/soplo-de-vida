@@ -30,7 +30,7 @@ export const Footer = ({ urlList }) => {
   }, []); // Empty dependency array to only run this effect on mount
 
   return (
-    <footer className={`${isCatalog ? "hidden": ""} w-full bg-grey desktop:bg-secondary flex flex-col justify-evenly p-4 gap-5 items-start desktop:items-center`}>
+    <footer className={`${isCatalog ? "hidden tablet:flex": ""} w-full bg-grey desktop:bg-secondary flex flex-col justify-evenly p-4 gap-5 items-start desktop:items-center`}>
       <div className="w-full flex flex-col tablet:flex-row justify-between items-center gap-1 tablet:items-start">
         <div className="flex tablet:flex-row flex-row-reverse w-[100%] tablet:w-auto desktop:w-2/6 justify-between desktop:justify-center gap-5">
           {isSmallDevice ? (
@@ -60,7 +60,7 @@ export const Footer = ({ urlList }) => {
         </div>
 
         <div className="flex-col items-center w-auto desktop:w-2/6 p-2 hidden laptop:flex">
-          <h3 className="text-md font-bold">¡Ayudá a un Soplito!</h3>
+          <h3 className="text-md text-white font-bold">¡Ayudá a un Soplito!</h3>
           <Button
             variant="primary"
             size="medium"

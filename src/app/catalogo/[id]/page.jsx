@@ -22,13 +22,11 @@ export default async function page({ params }) {
   }
 
   return (
-    <div>
-      <div className="w-screen tablet:px-[40px] laptop:px-[89px]">
-        <PetMobile />
-        <Pet pet={pet} />
-        <Aliado/>
-        <Requirements />
-      </div>
+    <div className="w-full tablet:px-[40px] laptop:px-[89px]">
+      <PetMobile pet={pet} />
+      <Pet pet={pet} />
+      <Aliado />
+      <Requirements />
     </div>
   );
 }
