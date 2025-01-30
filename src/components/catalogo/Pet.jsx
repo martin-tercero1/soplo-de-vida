@@ -1,6 +1,5 @@
 "use client"
 import { Label } from "@/components/catalogo/PetMobile/Label";
-import { motion } from "motion/react";
 import Image from "next/image";
 import { ShareIcon } from "@/components/catalogo/ShareIcon";
 import { SmallPic } from "@/components/catalogo/SmallPic";

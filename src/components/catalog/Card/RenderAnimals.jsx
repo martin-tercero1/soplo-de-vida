@@ -9,7 +9,7 @@ const RenderAnimals = ({ animals }) => {
   }
 
   const gridClasses = `
-    mx-[92px]
+    p-2
     grid gap-y-1 gap-x-2 
     mobile:grid-cols-2 
     tablet:grid-cols-3 tablet:gap-y-2 

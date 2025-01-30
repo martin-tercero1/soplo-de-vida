@@ -1,8 +1,7 @@
 "use client"
 
 import AnimalCards from '@/components/catalog/Card/AnimalCards';
-import { Header } from "@/components/home/Header";
-import React, {useState} from 'react'
+import React from 'react'
 import Image from 'next/image';
 import backIcon from '/public/icons/back.svg';
 import FiltersSection from '@/components/catalog/Filter/FiltersSection';
