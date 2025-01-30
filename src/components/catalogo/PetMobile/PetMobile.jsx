@@ -25,7 +25,11 @@ export function PetMobile({ id }) {
     <section className="tablet:hidden h-screen w-screen relative">
       <div
         className="h-[320px] w-full relative bg-cover bg-no-repeat bg-center"
-        style={{ backgroundImage: `url(${petSample.images[0]}` }}
+        style={{
+          backgroundImage: `url(${
+            animal?.images?.[0] === "" ? null : animal?.images?.[0]
+          }`,
+        }}
       >
         <div className="z-20 w-full h-full bg-gradient-to-br from-[#cccdd3b3] via-transparent to-transparent"></div>
       </div>
@@ -64,7 +68,7 @@ export function PetMobile({ id }) {
             } w-full flex justify-between items-center`}
           >
             <p className="text-black text-[35px] font-bold leading-[42px]">
-              {petSample.name}
+              {animal?.name}
             </p>
             <Image
               alt="Icono de compartir"
@@ -78,10 +82,10 @@ export function PetMobile({ id }) {
               panelState === "collapsed" ? "hidden" : ""
             } flex flex-wrap gap-[4px]`}
           >
-            <Label text={petSample.gender} />
-            <Label text={petSample.age} />
-            <Label text={petSample.personality} />
-            <Label text={petSample.health_condition} />
+            <Label text={animal?.gender} />
+            <Label text={animal?.age} />
+            <Label text={animal?.personality} />
+            <Label text={animal?.health_condition} />
           </div>
           <div
             className={`${
@@ -92,7 +96,7 @@ export function PetMobile({ id }) {
               Su historia
             </p>
             <p className="text-black text-[14px] font-normal leading-[21px]">
-              {petSample.description}
+              {animal?.description}
             </p>
           </div>
         </div>

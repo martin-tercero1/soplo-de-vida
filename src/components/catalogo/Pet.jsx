@@ -29,9 +29,9 @@ export function Pet({ id }) {
       <div className="mb-4 flex items-center justify-between">
         <div className="flex gap-[24px] items-center">
           <div className="w-[80px] h-[80px] relative">
-            {petSample?.images?.length > 1 ? (
+            {animal?.images?.length > 1 ? (
               <Image
-                src={petSample.images?.[0]}
+                src={animal.images?.[0] === "" ? null : animal.images?.[0]}
                 className="rounded-[8px]"
                 fill
                 alt="Imagen de mascota"
@@ -48,7 +48,7 @@ export function Pet({ id }) {
           </div>
 
           <h2 className="font-bold leading-[65px] text-2xl text-grey/90">
-            {petSample.name}
+            {animal?.name}
           </h2>
         </div>
         <div className="flex flex-col items-center">
@@ -68,16 +68,16 @@ export function Pet({ id }) {
         <div className="flex flex-col gap-[16px] laptop:flex-row-reverse">
           <div className="w-[320px] h-[396px] relative laptop:w-[525px] laptop:h-[495px]">
             <Image
-              src={petSample?.images[1]}
+              src={animal?.images?.[1] === "" ? null : animal?.images?.[1]}
               className="rounded-[5px]"
               fill
               alt="Mascota foto"
             />
           </div>
           <div className="flex laptop:flex-col gap-[14px]">
-            <SmallPic image={petSample?.images?.at(2)} />
-            <SmallPic image={petSample?.images?.at(3)} />
-            <SmallPic image={petSample?.images?.at(4)} />
+            <SmallPic image={animal?.images?.at(2)} />
+            <SmallPic image={animal?.images?.at(3)} />
+            <SmallPic image={animal?.images?.at(4)} />
           </div>
         </div>
 
@@ -90,21 +90,21 @@ export function Pet({ id }) {
               <div className="flex items-center text-grey font-bold text-[28px] leading-[34px] w-[136px]">
                 Sexo
               </div>
-              <Label text={petSample.gender} />
+              <Label text={animal?.gender} />
             </div>
 
             <div className="w-full flex">
               <div className="flex items-center text-grey font-bold text-[28px] leading-[34px] w-[136px]">
                 Tamaño
               </div>
-              <Label text={petSample.size} />
+              <Label text={animal?.size} />
             </div>
 
             <div className="w-full flex">
               <div className="flex items-center text-grey font-bold text-[28px] leading-[34px] w-[136px]">
                 Edad
               </div>
-              <Label text={petSample.age} />
+              <Label text={animal?.age} />
             </div>
 
             <div className="w-full flex">
@@ -113,14 +113,14 @@ export function Pet({ id }) {
               </div>
               <Label
                 text={`${
-                  petSample.dewormed ? "Desparasitado" : "No desparacitado"
+                  animal?.dewormed ? "Desparasitado" : "No desparacitado"
                 }`}
               />
             </div>
             <div className="flex-col items-center text-grey font-bold text-[28px] leading-[34px]">
               Carácter
               <p className="text-grey text-[22px] font-semibold leading-[28px]">
-                {petSample?.personality}
+                {animal?.personality}
               </p>
             </div>
           </div>
@@ -139,7 +139,7 @@ export function Pet({ id }) {
           Su historia
         </h3>
         <p className="font-normal leading-[21px] text-sm text-grey">
-          {petSample?.description}
+          {animal?.description}
         </p>
       </article>
     </section>

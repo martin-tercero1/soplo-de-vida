@@ -15,7 +15,7 @@ const useAnimal = (id) => {
         }
         const data = await response.json();
         console.log(data);
-        setAnimal(data.data.pets);
+        setAnimal(data.data);
       } catch (error) {
         setError(error);
       } finally {
