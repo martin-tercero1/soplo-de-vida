@@ -1,11 +1,8 @@
-"use client";
-
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { usePathname } from "next/navigation";
 
-const metadata = {
+export const metadata = {
   title: "Soplo de Vida",
   description: "Refugio de perritos",
 };
@@ -27,9 +24,6 @@ const landingURLs = [
 ];
 
 export default function RootLayout({ children }) {
-  const pathname = usePathname();
-  const isLanding = pathname === "/landing";
-
   return (
     <html lang="es">
       <head>
@@ -48,8 +42,9 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${nunito.className} antialiased `}>
+
         {children}
-        <Footer urlList={isLanding ? landingURLs : homeURLs} />
+        <Footer/>
       </body>
       <GoogleTagManager gtmId="GTM-TPJ6N9FS" />
     </html>

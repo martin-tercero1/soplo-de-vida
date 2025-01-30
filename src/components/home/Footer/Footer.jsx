@@ -4,9 +4,26 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/shared/Button";
 import Image from "next/image";
 
-export const Footer = ({ urlList }) => {
+const homeURLs = [
+  { name: "Home", href: "/" },
+  { name: "Catalogo", href: "/catalogo" },
+  { name: "Nosotros", href: "/nosotros" },
+];
+
+const landingURLs = [
+  { name: "Nosotros", href: "#nosotros" },
+  { name: "Testimonios", href: "#testimonios" },
+  { name: "Cómo ayudar", href: "#ayudar" },
+  { name: "Contactarme", href: "#contactar" },
+];
+
+export const Footer = () => {
   const pathname = usePathname();
+  const isLanding = pathname === "/landing";
   const isCatalog = pathname.startsWith("/catalogo");
+
+
+  const urlList = isLanding ? landingURLs : homeURLs
 
   const [isSmallDevice, setIsSmallDevice] = useState(false); // State to track small device
   const [isDesktop, setIsDesktop] = useState(false); // State to track desktop size
@@ -30,7 +47,11 @@ export const Footer = ({ urlList }) => {
   }, []); // Empty dependency array to only run this effect on mount
 
   return (
-    <footer className={`${isCatalog ? "hidden tablet:flex": ""} w-full bg-grey desktop:bg-secondary flex flex-col justify-evenly p-4 gap-5 items-start desktop:items-center`}>
+    <footer
+      className={`${
+        isCatalog ? "hidden tablet:flex" : ""
+      } w-full bg-grey desktop:bg-secondary flex flex-col justify-evenly p-4 gap-5 items-start desktop:items-center`}
+    >
       <div className="w-full flex flex-col tablet:flex-row justify-between items-center gap-1 tablet:items-start">
         <div className="flex tablet:flex-row flex-row-reverse w-[100%] tablet:w-auto desktop:w-2/6 justify-between desktop:justify-center gap-5">
           {isSmallDevice ? (

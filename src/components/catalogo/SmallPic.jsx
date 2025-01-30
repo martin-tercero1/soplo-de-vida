@@ -4,7 +4,7 @@ export function SmallPic({ image }) {
   return image ? (
     <div className="w-[97px] h-[97px] relative">
       <Image
-        src={image}
+        src={image === "" ? null : image}
         className="rounded-[8px]"
         fill
         alt="Imagen de mascota"

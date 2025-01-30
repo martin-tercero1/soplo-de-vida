@@ -1,21 +1,23 @@
+"use client"
 import { useState, useEffect } from 'react';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
 
-const useAnimals = (limit = 10, page = 1) => {
-  const [animals, setAnimals] = useState([]);
+const useAnimal = (id) => {
+  const [animal, setAnimal] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchAnimals = async () => {
+    const fetchAnimal = async () => {
       try {
-        const response = await fetch(`${API_BASE}/api/pets?limit=${limit}&page=${page}`);
+        const response = await fetch(`${API_BASE}/api/pets/${id}`);
         if (!response.ok) {
           throw new Error('Error en la conexion a la API de mascotas');
         }
         const data = await response.json();
-        setAnimals(data.data.pets);
+        console.log(data);
+        setAnimal(data.data);
       } catch (error) {
         setError(error);
       } finally {
@@ -23,10 +25,10 @@ const useAnimals = (limit = 10, page = 1) => {
       }
     };
 
-    fetchAnimals();
-  }, [limit, page]);
+    fetchAnimal();
+  }, [id]);
 
-  return { animals, loading, error };
+  return { animal, loading, error };
 };
 
-export default useAnimals;
+export default useAnimal;

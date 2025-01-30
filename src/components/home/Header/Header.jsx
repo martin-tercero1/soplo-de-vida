@@ -1,7 +1,9 @@
-"use client"
+"use client";
 import { Antonio } from "next/font/google";
 import { Button } from "@/components/shared/Button";
 import { useEffect, useState } from "react";
+
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 import Image from "next/image";
@@ -12,36 +14,67 @@ import { sendGAEvent } from "@next/third-parties/google";
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
 
+const homeURLs = [
+  { name: "Home", href: "/" },
+  { name: "Catalogo", href: "/catalogo" },
+  { name: "Nosotros", href: "/nosotros" },
+];
+
+const landingURLs = [
+  { name: "Nosotros", href: "#nosotros" },
+  { name: "Testimonios", href: "#testimonios" },
+  { name: "Cómo ayudar", href: "#ayudar" },
+  { name: "Contactarme", href: "#contactar" },
+];
+
 export const Header = ({ togglePopUp }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [header, setHeader] = useState(false);
 
+  const pathname = usePathname();
+  const isLanding = pathname === "/landing";
+
+  const urlList = isLanding ? landingURLs : homeURLs;
 
   const scrollHeader = () => {
     if (window.scrollY >= 40) {
-      setHeader(true)
+      setHeader(true);
     } else {
       setHeader(false);
     }
-  }
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', scrollHeader)
+    window.addEventListener("scroll", scrollHeader);
 
-    return () => {window.addEventListener('scroll', scrollHeader)}
+    return () => {
+      window.addEventListener("scroll", scrollHeader);
+    };
   }, []);
 
-    const headerClass = clsx("flex", "z-10",  "w-full", "justify-between", "laptop:h-[88px]", "h-[60px]", "py-[15px]", "laptop:px-5", "tablet:px-3", "mobile:px-3", "bg-white", {
-      "fixed": header === true,
-    });
-
-    const mergedClass = twMerge(headerClass);
-
-
-    const donateClick = () => {
-      togglePopUp();
-      sendGAEvent('event', 'donateButtonClicked');
+  const headerClass = clsx(
+    "flex",
+    "z-10",
+    "w-full",
+    "justify-between",
+    "laptop:h-[88px]",
+    "h-[60px]",
+    "py-[15px]",
+    "laptop:px-5",
+    "tablet:px-3",
+    "mobile:px-3",
+    "bg-white",
+    {
+      fixed: header === true,
     }
+  );
+
+  const mergedClass = twMerge(headerClass);
+
+  const donateClick = () => {
+    togglePopUp();
+    sendGAEvent("event", "donateButtonClicked");
+  };
 
   return (
     <header className={mergedClass}>
@@ -107,50 +140,21 @@ export const Header = ({ togglePopUp }) => {
               >
                 <img src="/icons/xicon.svg" className="w-3" />
               </div>
-              <ul className=" flex basis-4/6 flex-col items-center justify-between min-h-[250px] w-[90%] py-1">
-                <li
-                  className="bg-secondary w-full text-center p-3 rounded-md"
-                  onClick={() => setIsNavOpen(false)}
-                >
-                  <a
-                    className="font-medium leading-5 text-base hover:font-bold text-black block"
-                    href="#inicio"
+              <ul className="flex basis-4/6 flex-col items-center justify-between min-h-[250px] w-[90%] py-1 z-30">
+                {urlList.map((url, index) => (
+                  <li
+                    key={index}
+                    className="bg-secondary w-full text-center p-3 rounded-md"
+                    onClick={() => setIsNavOpen(false)}
                   >
-                    Inicio
-                  </a>
-                </li>
-                <li onClick={() => setIsNavOpen(false)}>
-                  <a
-                    className="font-medium leading-5 text-base hover:font-bold text-black"
-                    href="#nosotros"
-                  >
-                    Nosotros
-                  </a>
-                </li>
-                <li onClick={() => setIsNavOpen(false)}>
-                  <a
-                    className="font-medium leading-5 text-base hover:font-bold text-black"
-                    href="#testimonios"
-                  >
-                    Testimonios
-                  </a>
-                </li>
-                <li onClick={() => setIsNavOpen(false)}>
-                  <a
-                    className="font-medium leading-5 text-base hover:font-bold text-black"
-                    href="#ayudar"
-                  >
-                    Cómo Ayudar
-                  </a>
-                </li>
-                <li onClick={() => setIsNavOpen(false)}>
-                  <a
-                    className="font-medium leading-5 text-base hover:font-bold text-black"
-                    href="#contactar"
-                  >
-                    Contactarme
-                  </a>
-                </li>
+                    <a
+                      className="font-medium leading-5 text-base hover:font-bold text-black block"
+                      href={url.href}
+                    >
+                      {url.name}
+                    </a>
+                  </li>
+                ))}
                 <Button
                   size="medium"
                   variant="primary"
@@ -162,38 +166,16 @@ export const Header = ({ togglePopUp }) => {
             </div>
           </section>
           <ul className="laptop:flex items-center gap-3 DESKTOP-MENU hidden space-x-1">
-            <li>
-              <a
-                className="font-normal leading-5 text-base hover:font-bold text-grey"
-                href="#nosotros"
-              >
-                Nosotros
-              </a>
-            </li>
-            <li>
-              <a
-                className="font-normal leading-5 text-base hover:font-bold text-grey"
-                href="#testimonios"
-              >
-                Testimonios
-              </a>
-            </li>
-            <li>
-              <a
-                className="font-normal leading-5 text-base hover:font-bold text-grey"
-                href="#ayudar"
-              >
-                Cómo Ayudar
-              </a>
-            </li>
-            <li>
-              <a
-                className="font-normal leading-5 text-base hover:font-bold text-grey"
-                href="#contactar"
-              >
-                Contactarme
-              </a>
-            </li>
+            {urlList.map((url, index) => (
+              <li key={index}>
+                <a
+                  className="font-normal leading-5 text-base hover:font-bold text-grey"
+                  href={url.href}
+                >
+                  {url.name}
+                </a>
+              </li>
+            ))}
             <Button
               size="medium"
               variant="primary"

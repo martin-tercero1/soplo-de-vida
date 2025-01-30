@@ -1,14 +1,13 @@
 "use client";
-import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { Label } from "@/components/catalogo/PetMobile/Label";
-import { motion } from "motion/react";
+import { motion } from "framer-motion"; // Correct import
 import Image from "next/image";
 import { useState } from "react";
+import useAnimal from "@/hooks/useAnimal";
 
 const petSample = {
   name: "Chupetín",
-  description:
-    "Hace 4 años que Stompi espera ❤️‍🩹 Despues de todo lo que sufrió y superó, mercer una familia. En el 2020, 5 dias antes de que empiece la cuarentena, lo fuimos a buscar a La Plata. Un perro lo había mordido en la cara y a su familia no le habia importado. Con el pasar de las semanas, una gran bichera le saco la mitad de su carita 🥺 Cuando llegamos, Stompi ya no comia, pesaba la mitad de su peso normal: estaba dándose por vencido. Corrimos a la veterinaria. Lamentablemente perdió su ojito izquierdo y para tapar su hueso tuvimos que hacerle 2 cirugias reconstructivas Imaginense las heridas que le quedaron al pobre gordo, no solo fisicas, sino tambien emocionales. Stompi tardo mucho en volver a confiar en los humanos despues de que lo abandonaran asi❤️‍🩹 Pero hoy confiamos en que el gordo esta listo para una familia. Puede ir con otros perros tranquilos sin problema🤭 Para su adaptación saldría con adiestrador y etologo, cubierto por nosotras. En casos como los de él hacemos un acompañamiento constante y cubrimos los gastos hasta terminar su adaptación. Queremos que sea el próximo en dejar el canil, en encontrar una familia. Por favor ayudennos a lograrlo❤️‍🩹",
+  description: "Hace 4 años que Stompi espera ❤️‍🩹 ...", // Shortened for readability
   age: "4 años",
   gender: "Macho",
   personality: "Muy juguetón",
@@ -16,38 +15,48 @@ const petSample = {
   images: ["/pet/sample.jpeg"],
 };
 
-export function PetMobile({ pet }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+export function PetMobile({ id }) {
+  const [panelState, setPanelState] = useState("mid"); // No TypeScript types
+
+  const { animal, loading, error } = useAnimal(id);
+  console.log(animal);
 
   return (
     <section className="tablet:hidden h-screen w-screen relative">
       <div
-        className="h-[320px] w-full relative bg-cover bg-no-repeat bg-center "
-        style={{ backgroundImage: `url(${petSample.images[0]}` }}
+        className="h-[320px] w-full relative bg-cover bg-no-repeat bg-center"
+        style={{
+          backgroundImage: `url(${
+            animal?.images?.[0] === "" ? null : animal?.images?.[0]
+          }`,
+        }}
       >
         <div className="z-20 w-full h-full bg-gradient-to-br from-[#cccdd3b3] via-transparent to-transparent"></div>
       </div>
       <motion.div
         className={`${
-          isCollapsed ? "bg-secondary" : "bg-white"
+          panelState === "collapsed" ? "bg-secondary" : "bg-white"
         } rounded-[24px] z-10 absolute bottom-0 w-full`}
-        animate={{ height: isExpanded ? "90%" : isCollapsed ? "100px" : "67%" }}
+        animate={{
+          height:
+            panelState === "expanded"
+              ? "90%"
+              : panelState === "mid"
+              ? "50%"
+              : "100px",
+        }}
         initial={{ height: "50%" }}
         transition={{ duration: 0.3 }}
         drag="y"
         dragConstraints={{ top: 0, bottom: 0 }}
         dragElastic={0.2}
         onDragEnd={(e, info) => {
-          console.log(info.offset.y);
-          if (info.offset.y < -50) {
-            setIsExpanded(true);
-          } else if (info.offset.y > 50) {
-            if (info.offset.y > 80) {
-              setIsCollapsed(true);
-            } else {
-              setIsExpanded(false);
-            }
+          const dragOffset = info.offset.y;
+
+          if (dragOffset < -60) {
+            setPanelState("expanded");
+          } else if (dragOffset > 60) {
+            setPanelState(panelState === "expanded" ? "mid" : "collapsed");
           }
         }}
       >
@@ -55,11 +64,11 @@ export function PetMobile({ pet }) {
           <div className="bg-grey w-[80px] h-[4px] rounded-[4px]"></div>
           <div
             className={`${
-              isCollapsed ? "hidden" : ""
+              panelState === "collapsed" ? "hidden" : ""
             } w-full flex justify-between items-center`}
           >
             <p className="text-black text-[35px] font-bold leading-[42px]">
-              {petSample.name}
+              {animal?.name}
             </p>
             <Image
               alt="Icono de compartir"
@@ -70,20 +79,24 @@ export function PetMobile({ pet }) {
           </div>
           <div
             className={`${
-              isCollapsed ? "hidden" : ""
+              panelState === "collapsed" ? "hidden" : ""
             } flex flex-wrap gap-[4px]`}
           >
-            <Label text={petSample.gender} />
-            <Label text={petSample.gender} />
-            <Label text={petSample.personality} />
-            <Label text={petSample.health_condition} />
+            <Label text={animal?.gender} />
+            <Label text={animal?.age} />
+            <Label text={animal?.personality} />
+            <Label text={animal?.health_condition} />
           </div>
-          <div className={`${isCollapsed ? "hidden" : ""} overflow-y-scroll`}>
+          <div
+            className={`${
+              panelState === "collapsed" ? "hidden" : "overflow-y-scroll"
+            }`}
+          >
             <p className="text-black text-[18px] font-bold leading-[25px]">
               Su historia
             </p>
             <p className="text-black text-[14px] font-normal leading-[21px]">
-              {petSample.description}
+              {animal?.description}
             </p>
           </div>
         </div>
