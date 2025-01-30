@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-export const SliderButton = ({ direction, nextSlide, prevSlide,isFirstSlide, isLastSlide }) => {
+export const SliderButton = ({ direction, nextSlide, prevSlide, isFirstSlide, isLastSlide }) => {
   if (direction === "right" && !isLastSlide) {
     return (
       <button
         onClick={nextSlide}
-        className="hidden tablet:flex items-center justify-center laptop:h-[64px] laptop:w-[64px] bg-secondary bg-opacity-50 rounded-full justify-self-center mr-[88px] w-[32px] h-[32px]"
+        className="hidden tablet:flex items-center justify-center laptop:h-[64px] laptop:w-[64px] bg-secondary bg-opacity-50 rounded-full justify-self-center mr-[20px] w-[32px] h-[32px]"
       >
         <Image width={12} height={12} alt="Icono siguiente" src="/icons/forward.svg" />
       </button>
