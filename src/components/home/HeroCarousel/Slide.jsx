@@ -4,7 +4,7 @@ import { Button } from "@/components/shared/Button";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 
-export const Slide = ({ title, subtitle, description, mobileDescription, background, nextSlide, slidesInfo, setSlide, currentSlide, startAutoSlide, stopAutoSlide, togglePopUp }) => {
+export const Slide = ({ title, subtitle, description, mobileDescription, background, nextSlide, prevSlide,slidesInfo, setSlide, currentSlide, startAutoSlide, stopAutoSlide, togglePopUp }) => {
     const buttonCustomSyles = [
       "w-full",
       "tablet:w-[227px]", 
@@ -75,7 +75,18 @@ export const Slide = ({ title, subtitle, description, mobileDescription, backgro
             onClick={togglePopUp}
           />
         </div>
-        <SliderButton nextSlide={nextSlide} direction="right" />
+        <SliderButton
+          direction="left"
+          prevSlide={prevSlide}
+          isFirstSlide={currentSlide === 0}
+          isLastSlide={currentSlide === slidesInfo.length - 1}
+        />
+        <SliderButton
+          direction="right"
+          nextSlide={nextSlide}
+          isFirstSlide={currentSlide === 0}
+          isLastSlide={currentSlide === slidesInfo.length - 1}
+        />
       </div>
       <Pagination
         slidesInfo={slidesInfo}

@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Slide } from "./Slide";
 import { useState, useRef, useEffect } from "react";
+import { SliderButton } from "./SliderButton";
 
 export const HeroCarousel = ({togglePopUp}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -64,6 +65,12 @@ export const HeroCarousel = ({togglePopUp}) => {
     setCurrentIndex(newIndex);
   }
 
+  const prevSlide = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
   const HeroCarouselClass = clsx(
     "w-100vw",
     "h-[411px]",
@@ -94,6 +101,7 @@ export const HeroCarousel = ({togglePopUp}) => {
         slidesInfo={slidesInfo}
         setSlide={setCurrentIndex}
         nextSlide={nextSlide}
+        prevSlide={prevSlide}
         currentSlide={currentIndex}
         startAutoSlide={startAutoSlide}
         stopAutoSlide={stopAutoSlide}
