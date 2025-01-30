@@ -1,31 +1,37 @@
+"use client"
 import { Label } from "@/components/catalogo/PetMobile/Label";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { ShareIcon } from "@/components/catalogo/ShareIcon";
 import { SmallPic } from "@/components/catalogo/SmallPic";
 import { Button } from "@/components/shared/Button";
+import useAnimal from "@/hooks/useAnimal";
 
 const petSample = {
   name: "Chupetín",
   description:
     "Hace 4 años que Stompi espera ❤️‍🩹 Despues de todo lo que sufrió y superó, mercer una familia. En el 2020, 5 dias antes de que empiece la cuarentena, lo fuimos a buscar a La Plata. Un perro lo había mordido en la cara y a su familia no le habia importado. Con el pasar de las semanas, una gran bichera le saco la mitad de su carita 🥺 Cuando llegamos, Stompi ya no comia, pesaba la mitad de su peso normal: estaba dándose por vencido. Corrimos a la veterinaria. Lamentablemente perdió su ojito izquierdo y para tapar su hueso tuvimos que hacerle 2 cirugias reconstructivas Imaginense las heridas que le quedaron al pobre gordo, no solo fisicas, sino tambien emocionales. Stompi tardo mucho en volver a confiar en los humanos despues de que lo abandonaran asi❤️‍🩹 Pero hoy confiamos en que el gordo esta listo para una familia. Puede ir con otros perros tranquilos sin problema🤭 Para su adaptación saldría con adiestrador y etologo, cubierto por nosotras. En casos como los de él hacemos un acompañamiento constante y cubrimos los gastos hasta terminar su adaptación. Queremos que sea el próximo en dejar el canil, en encontrar una familia. Por favor ayudennos a lograrlo❤️‍🩹",
   age: "4 años",
+  size: "Mediano",
   gender: "Macho",
   personality: "Muy juguetón",
   health_condition: "Buen estado",
-  images: ["", "/pet/sample.jpeg", "", ""],
+  images: [null, "/pet/sample.jpeg", null, null],
 };
 
-export function Pet({ pet }) {
+export function Pet({ id }) {
+  const { animal, loading, error } = useAnimal(id);
+  console.log(animal);
+  // console.log(pet);
   return (
     <section className="hidden w-full tablet:block">
       {/* Name section */}
       <div className="mb-4 flex items-center justify-between">
         <div className="flex gap-[24px] items-center">
           <div className="w-[80px] h-[80px] relative">
-            {petSample.images[0] ? (
+            {petSample?.images?.length > 1 ? (
               <Image
-                src={petSample.images[0]}
+                src={petSample.images?.[0]}
                 className="rounded-[8px]"
                 fill
                 alt="Imagen de mascota"
@@ -57,20 +63,21 @@ export function Pet({ pet }) {
       </div>
 
       {/* Labels section */}
+
       <div className="w-full flex gap-[24px]">
         <div className="flex flex-col gap-[16px] laptop:flex-row-reverse">
           <div className="w-[320px] h-[396px] relative laptop:w-[525px] laptop:h-[495px]">
             <Image
-              src={petSample.images[1]}
+              src={petSample?.images[1]}
               className="rounded-[5px]"
               fill
               alt="Mascota foto"
             />
           </div>
           <div className="flex laptop:flex-col gap-[14px]">
-            <SmallPic image={petSample.images[2]} />
-            <SmallPic image={petSample.images[3]} />
-            <SmallPic image={petSample.images[4]} />
+            <SmallPic image={petSample?.images?.at(2)} />
+            <SmallPic image={petSample?.images?.at(3)} />
+            <SmallPic image={petSample?.images?.at(4)} />
           </div>
         </div>
 
@@ -83,33 +90,37 @@ export function Pet({ pet }) {
               <div className="flex items-center text-grey font-bold text-[28px] leading-[34px] w-[136px]">
                 Sexo
               </div>
-              <Label text="Macho" />
+              <Label text={petSample.gender} />
             </div>
 
             <div className="w-full flex">
               <div className="flex items-center text-grey font-bold text-[28px] leading-[34px] w-[136px]">
                 Tamaño
               </div>
-              <Label text="Tamaño" />
+              <Label text={petSample.size} />
             </div>
 
             <div className="w-full flex">
               <div className="flex items-center text-grey font-bold text-[28px] leading-[34px] w-[136px]">
                 Edad
               </div>
-              <Label text="5 Meses" />
+              <Label text={petSample.age} />
             </div>
 
             <div className="w-full flex">
               <div className="flex items-center text-grey font-bold text-[28px] leading-[34px] w-[136px]">
                 Salud
               </div>
-              <Label text="Desparasitado" />
+              <Label
+                text={`${
+                  petSample.dewormed ? "Desparasitado" : "No desparacitado"
+                }`}
+              />
             </div>
             <div className="flex-col items-center text-grey font-bold text-[28px] leading-[34px]">
               Carácter
               <p className="text-grey text-[22px] font-semibold leading-[28px]">
-                {petSample.personality}
+                {petSample?.personality}
               </p>
             </div>
           </div>
@@ -128,7 +139,7 @@ export function Pet({ pet }) {
           Su historia
         </h3>
         <p className="font-normal leading-[21px] text-sm text-grey">
-          {petSample.description}
+          {petSample?.description}
         </p>
       </article>
     </section>

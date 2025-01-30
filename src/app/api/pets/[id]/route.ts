@@ -22,17 +22,19 @@ type PetUpdate = {
   urgency?: boolean;
 };
 
-export async function GET(req: NextRequest, { params }: Params) {
+export async function GET(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
-    console.log(params);
-    const { id } = params;
+    const { id } = (await params);
 
     const pet: Pet | null = await prisma.pet.findUnique({
       where: {
         id: id?.toString(),
       },
     });
-    console.log(pet);
+    // console.log(pet);
 
     if (!pet) {
       return NextResponse.json({ error: "Pet not found" }, { status: 404 });
@@ -49,7 +51,10 @@ export async function GET(req: NextRequest, { params }: Params) {
   }
 }
 
-export async function PATCH(req: NextRequest, { params }: Params) {
+export async function PATCH(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
     const { id } = await params;
 
@@ -65,7 +70,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
       castrated,
       dewormed,
       images,
-    } = (await req.json()) as PetUpdate;
+    } = (await request.json()) as PetUpdate;
 
     const pet: Pet = await prisma.pet.update({
       where: {
