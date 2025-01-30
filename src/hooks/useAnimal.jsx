@@ -1,6 +1,8 @@
 "use client"
 import { useState, useEffect } from 'react';
 
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
+
 const useAnimal = (id) => {
   const [animal, setAnimal] = useState({});
   const [loading, setLoading] = useState(true);
@@ -9,7 +11,7 @@ const useAnimal = (id) => {
   useEffect(() => {
     const fetchAnimal = async () => {
       try {
-        const response = await fetch(`/api/pets/${id}`);
+        const response = await fetch(`${API_BASE}/api/pets/${id}`);
         if (!response.ok) {
           throw new Error('Error en la conexion a la API de mascotas');
         }
