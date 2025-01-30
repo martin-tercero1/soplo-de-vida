@@ -1,12 +1,25 @@
 import React from 'react';
 import FilterCard from '@/components/catalog/Filter/FilterCard';
-import Image from 'next/image';
-import filterIcon from '/public/icons/filter.svg';
+import SearchBar from '@/components/shared/Search-bar/SearchBar';
+import FilterButton from '@/components/catalog/Filter/FilterButton';
 
 const FiltersSection = ({ filters, onFilterClick, onClearFilters }) => {
   return (
     <>
-      <div id='filter-cards' className='flex gap-4'>
+      {/* Contenedor para tablet, laptop y desktop */}
+      <div id="Search-bar-Tablet-Desktop" className='hidden tablet:flex tablet:flex-row tablet:justify-center tablet:items-center gap-4 laptop:px-[40px] desktop:px-[40px]'>
+        <SearchBar />
+        <FilterButton onClearFilters={onClearFilters} />
+      </div>
+
+      {/* Contenedor para mobile */}
+      <div id='Search-bar-Mobile' className='flex flex-col tablet:hidden gap-4 laptop:px-[40px] desktop:px-[40px]'>
+        <SearchBar />
+      </div>
+
+      <div id='filter-cards' className='flex gap-4 justify-center items-center
+      laptop:px-[40px] 
+      desktop:px-[40px]'>
         {filters.map((filter, index) => (
           <FilterCard
             key={index}
@@ -17,14 +30,9 @@ const FiltersSection = ({ filters, onFilterClick, onClearFilters }) => {
         ))}
       </div>
 
-      <div id='filter-section' className='flex my-[13.5px]'>
-        <button id='filter-button' className='flex font-bold text-[14px]'>
-          <Image src={filterIcon} alt="Filtros" className="mr-[9px]" />
-          Filtros
-        </button>
-        <button id='clear-filters' className='underline font-normal text-[9px] ml-[9px]' onClick={onClearFilters}>
-          Limpiar filtros
-        </button>
+      {/* FilterButton para mobile */}
+      <div id='FilterButton-Mobile' className='flex flex-col tablet:hidden gap-4 laptop:px-[40px] desktop:px-[40px]'>
+        <FilterButton onClearFilters={onClearFilters} />
       </div>
     </>
   );

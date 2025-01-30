@@ -7,7 +7,11 @@ const SearchBar = () => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <div className="relative mb-[8px] w-[212px] sm:w-[70%]">
+    <div className="relative mb-[8px] w-[212px] 
+      mobile:w-[70%]
+      tablet:w-[40%]
+      laptop:w-[40%]    
+      desktop:w-[40%]">  
       <div className={`relative flex items-center border border-[#cecece] rounded-[10px] focus-within:border-primary transition-all duration-300 ease-in-out ${isFocused ? 'w-[calc(100%+38px)]' : 'w-full'}`}>
         <div className="pl-[10px] flex items-center">
           <Image src={searchIcon} alt="Buscar" className="search-icon" />

@@ -35,9 +35,6 @@ export default function Catalog () {
           </button>
           <h2 className='py-2 font-bold text-[18px]'>Nuestros soplitos</h2>
 
-          {/**Search-bar*/}
-          <SearchBar/>
-
           <FiltersSection filters={filters} onFilterClick={handleFilterClick} onClearFilters={handleClearFilters} />
         </div>
         <AnimalCards/>

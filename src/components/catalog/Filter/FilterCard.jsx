@@ -3,7 +3,12 @@ import React from 'react';
 const FilterCard = ({ filter, image, onFilterClick }) => {
   return (
     <button
-      className="relative border border-transparent rounded-[10px] p-[8px] overflow-hidden cursor-pointer transition-transform transform hover:scale-105 flex flex-col gap-[8px] w-[136px] h-[96px] sm:w-[150px] sm:h-[165px] md:w-[180px] md:h-[200px]"
+      className="relative border border-transparent rounded-[10px] p-[8px] overflow-hidden cursor-pointer transition-transform transform hover:scale-105 flex flex-col gap-[8px] 
+      w-[136px] h-[96px]
+      mobile:w-[136px] mobile:h-[96px]
+      tablet:w-[296px] tablet:h-[158px]
+      laptop:w-[324px] laptop:h-[152px]
+      desktop:w-[324px] desktop:h-[152px]"
       onClick={() => onFilterClick(filter)}
       style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
