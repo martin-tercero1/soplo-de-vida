@@ -12,7 +12,7 @@ const nunito = Nunito({ subsets: ["latin"] });
 
 const homeURLs = [
   { name: "Home", href: "/" },
-  {name: "Catalogo", href: "/catalogo"},
+  { name: "Catalogo", href: "/catalogo" },
   { name: "Nosotros", href: "/nosotros" },
 ];
 
@@ -42,9 +42,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${nunito.className} antialiased `}>
-
         {children}
-        <Footer/>
+        <Footer />
       </body>
       <GoogleTagManager gtmId="GTM-TPJ6N9FS" />
     </html>
