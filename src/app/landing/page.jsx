@@ -13,7 +13,7 @@ import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
 import { HelpUs } from "@/components/home/HelpUs";
 
-export default function Home() {
+export default function Landing() {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
 
   const homeClass = clsx("content-wrapper", {
