@@ -30,6 +30,7 @@ const landingURLs = [
 export const Header = ({ togglePopUp }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [header, setHeader] = useState(false);
+  const [currentHash, setCurrentHash] = useState("");
 
   const pathname = usePathname();
   const isLanding = pathname === "/landing";
@@ -50,6 +51,19 @@ export const Header = ({ togglePopUp }) => {
     return () => {
       window.addEventListener("scroll", scrollHeader);
     };
+  }, []);
+
+  // Track hash changes for landing page
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+    };
+
+    // Initial hash
+    setCurrentHash(window.location.hash);
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   const headerClass = clsx(
@@ -141,20 +155,29 @@ export const Header = ({ togglePopUp }) => {
                 <img src="/icons/xicon.svg" className="w-3" />
               </div>
               <ul className="flex basis-4/6 flex-col items-center justify-between min-h-[250px] w-[90%] py-1 z-30">
-                {urlList.map((url, index) => (
-                  <li
-                    key={index}
-                    className="bg-secondary w-full text-center p-3 rounded-md"
-                    onClick={() => setIsNavOpen(false)}
-                  >
-                    <a
-                      className="font-medium leading-5 text-base hover:font-bold text-black block"
-                      href={url.href}
+                {urlList.map((url, index) => {
+                  const isActive = isLanding
+                    ? currentHash === url.href
+                    : pathname === url.href;
+
+                  return (
+                    <li
+                      key={index}
+                      className={clsx(
+                        "w-full text-center p-3 rounded-md",
+                        isActive && "bg-secondary"
+                      )}
+                      onClick={() => setIsNavOpen(false)}
                     >
-                      {url.name}
-                    </a>
-                  </li>
-                ))}
+                      <a
+                        className="font-medium leading-5 text-base hover:font-bold text-black block"
+                        href={url.href}
+                      >
+                        {url.name}
+                      </a>
+                    </li>
+                  );
+                })}
                 <Button
                   size="medium"
                   variant="primary"
