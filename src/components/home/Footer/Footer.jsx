@@ -1,8 +1,9 @@
 "use client";
+import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react"; // Import useState and useEffect hooks
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/shared/Button";
-import Image from "next/image";
 import { DonatePopUp } from "@/components/home/Donate/DonatePopUp";
 
 const homeURLs = [
@@ -61,21 +62,21 @@ export const Footer = () => {
         <div className="w-full flex flex-col tablet:flex-row justify-between items-center gap-1 tablet:items-start">
           <div className="flex tablet:flex-row flex-row-reverse w-[100%] tablet:w-auto desktop:w-2/6 justify-between desktop:justify-center gap-5">
             {isSmallDevice ? (
-              <a href="/">
+              <Link href="/">
                 <img
                   className="w-[57px] h-[52px]"
                   src="/logo-soplo-de-vida.svg"
                   alt="soplo-de-vida-logo"
                 />
-              </a>
+              </Link>
             ) : (
-              <a href="/">
+              <Link href="/">
                 <img
                   className="mx-1"
                   src="/logo-texto.svg"
                   alt="soplo-de-vida-logo"
                 />
-              </a>
+              </Link>
             )}
             <div className="flex flex-col justify-between desktop:p-1 gap-1">
               {urlList.map((url, index) => (

@@ -71,10 +71,10 @@ export const Header = ({ togglePopUp }) => {
 
   const mergedClass = twMerge(headerClass);
 
-  const donateClick = () => {
-    togglePopUp();
-    sendGAEvent("event", "donateButtonClicked");
-  };
+  // const donateClick = () => {
+  //   togglePopUp();
+  //   sendGAEvent("event", "donateButtonClicked");
+  // };
 
   return (
     <header className={mergedClass}>
@@ -147,12 +147,12 @@ export const Header = ({ togglePopUp }) => {
                     className="bg-secondary w-full text-center p-3 rounded-md"
                     onClick={() => setIsNavOpen(false)}
                   >
-                    <a
+                    <Link
                       className="font-medium leading-5 text-base hover:font-bold text-black block"
                       href={url.href}
                     >
                       {url.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
                 <Button
@@ -160,7 +160,7 @@ export const Header = ({ togglePopUp }) => {
                   variant="primary"
                   text="Donar"
                   customStyles={["w-full", ""]}
-                  onClick={donateClick}
+                  onClick={togglePopUp}
                 ></Button>
               </ul>
             </div>
@@ -168,12 +168,12 @@ export const Header = ({ togglePopUp }) => {
           <ul className="laptop:flex items-center gap-3 DESKTOP-MENU hidden space-x-1">
             {urlList.map((url, index) => (
               <li key={index}>
-                <a
+                <Link
                   className="font-normal leading-5 text-base hover:font-bold text-grey"
                   href={url.href}
                 >
                   {url.name}
-                </a>
+                </Link>
               </li>
             ))}
             <Button

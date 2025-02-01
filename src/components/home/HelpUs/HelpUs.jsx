@@ -58,7 +58,7 @@ export const HelpUs = ({ togglePopup }) => {
           text={
             isLargeDevice
               ? "Adoptando un soplito podés cambiarle la vida para siempre y ayudás a que otros animales callejeros puedan ingresar al refugio."
-              : "Dale un hogar temporal a un soplito"
+              : "Cambiale la vida a un soplito para siempre"
           }
           buttonText={"Quiero adoptar"}
           link="https://goo.gl/forms/vRAFc3yV8MWCZ1yJ2"
@@ -69,7 +69,7 @@ export const HelpUs = ({ togglePopup }) => {
           text={
             isLargeDevice
               ? "Transitar es darle un hogar temporal a animales que no pueden quedarse en nuestro refugio. Así podemos cuidarlos hasta que una familia los adopte para siempre."
-              : "Cambiale la vida a un soplito para siempre"
+              : "Dale un hogar temporal a un soplito"
           }
           buttonText={"Quiero transitar"}
           link="https://goo.gl/forms/vRAFc3yV8MWCZ1yJ2"
