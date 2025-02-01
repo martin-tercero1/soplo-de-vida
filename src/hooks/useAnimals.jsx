@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE;
-
 const useAnimals = (limit = 10, page = 1) => {
   const [animals, setAnimals] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,7 +8,7 @@ const useAnimals = (limit = 10, page = 1) => {
   useEffect(() => {
     const fetchAnimals = async () => {
       try {
-        const response = await fetch(`${API_BASE}/api/pets?limit=${limit}&page=${page}`);
+        const response = await fetch(`/api/pets?limit=${limit}&page=${page}`);
         if (!response.ok) {
           throw new Error('Error en la conexion a la API de mascotas');
         }
